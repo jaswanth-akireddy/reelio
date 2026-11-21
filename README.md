@@ -18,10 +18,10 @@ GitHub Actions checks Telegram every 30 minutes from 7:30 am to midnight IST, so
 ## One-time setup
 
 1. **Telegram bot**: in Telegram, message `@BotFather`, send `/newbot`, and copy the token. Send any message to your new bot, then open `https://api.telegram.org/bot<TOKEN>/getUpdates` in a browser and copy `"chat":{"id": ...}`.
-2. **AI key**: the default is Gemini. Get a free key at aistudio.google.com and save it as `GEMINI_API_KEY`. To use Claude instead, set `llm.provider: "claude"` in `config.yaml` and add `ANTHROPIC_API_KEY` (billed separately from a Claude Pro plan).
+2. **AI**: the default is Claude Code on your Claude Pro plan, with no API bill. On a computer with Claude Code installed, run `claude setup-token` and save the token as `CLAUDE_CODE_OAUTH_TOKEN`. It counts toward your Pro usage limits. Alternatively, Gemini: Get a free key at aistudio.google.com and save it as `GEMINI_API_KEY`. To use Claude instead, set `llm.provider: "claude"` in `config.yaml` and add `ANTHROPIC_API_KEY` (billed separately from a Claude Pro plan).
 3. **ElevenLabs API key**: Profile → API keys. Telugu needs the `eleven_v4` or `eleven_v3` model (already set in `config.yaml`). Posting commercially needs a paid plan (Starter or above).
 4. **Add secrets**: in this repo, go to Settings → Secrets and variables → Actions → New repository secret:
-   - `GEMINI_API_KEY` (or `ANTHROPIC_API_KEY` if you use Claude)
+   - `CLAUDE_CODE_OAUTH_TOKEN` (or `GEMINI_API_KEY` / `ANTHROPIC_API_KEY` for the other providers)
    - `ELEVENLABS_API_KEY`
    - `TELEGRAM_BOT_TOKEN`
    - `TELEGRAM_CHAT_ID`

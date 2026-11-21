@@ -11,7 +11,9 @@ schedule:
   ideas_hour_ist: 9                 # ideas arrive on Telegram at this hour (IST) if no run is open
 
 llm:
-  provider: "gemini"                # "gemini" (free tier, GEMINI_API_KEY) or "claude" (ANTHROPIC_API_KEY)
+  provider: "claude_code"           # "claude_code" (your Claude Pro plan, CLAUDE_CODE_OAUTH_TOKEN),
+                                    # "gemini" (GEMINI_API_KEY) or "claude" (paid API, ANTHROPIC_API_KEY)
+  claude_code_model: "sonnet"
   gemini_model: "gemini-3.8-flash"
   gemini_fallback: "gemini-3.5-flash-lite"   # used if the main model is busy or over the free limit
   claude_model: "claude-opus-5-5"

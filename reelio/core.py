@@ -29,7 +29,10 @@ def extract_json(text):
 
 def ask_llm(cfg, prompt, search=False, max_tokens=12000):
     """Asks the configured AI (Gemini or Claude) and returns its JSON reply."""
-    if cfg["llm"].get("provider", "gemini") == "claude":
+    provider = cfg["llm"].get("provider", "gemini")
+    if provider == "claude_code":
+        return extract_json(_claude_code(cfg, prompt, search))
+    if provider == "claude":
         return extract_json(_claude(cfg, prompt, search, max_tokens))
     try:
         return extract_json(_gemini(cfg, prompt, search, max_tokens))
@@ -86,3 +89,20 @@ def _claude(cfg, prompt, search, max_tokens):
         kwargs["tools"] = [{"type": "web_search_20250305", "name": "web_search", "max_uses": 6}]
     msg = client.messages.create(**kwargs)
     return "".join(b.text for b in msg.content if getattr(b, "type", "") == "text")
+
+
+def _claude_code(cfg, prompt, search):
+    """Runs Claude Code headless, signed in with CLAUDE_CODE_OAUTH_TOKEN (your Claude Pro/Max plan, no API bill)."""
+    import subprocess
+    env("CLAUDE_CODE_OAUTH_TOKEN")
+    cmd = ["claude", "-p", "--output-format", "json", "--model", cfg["llm"].get("claude_code_model", "sonnet"), "--max-turns", "15"]
+    if search and cfg["llm"].get("web_search"):
+        cmd += ["--allowedTools", "WebSearch"]
+    p = subprocess.run(cmd, input=prompt + "\n\nReply with the JSON only.", capture_output=True, text=True, timeout=1200)
+    try:
+        out = json.loads(p.stdout)
+    except json.JSONDecodeError:
+        raise RuntimeError(f"Claude Code failed (exit {p.returncode}): {(p.stderr or p.stdout)[-600:]}") from None
+    if out.get("is_error") or p.returncode != 0:
+        raise RuntimeError(f"Claude Code error: {str(out.get('result', out))[:600]}")
+    return out["result"]
