@@ -1,5 +1,5 @@
 {
- "stage": "await_pick",
+ "stage": "await_script",
  "tg_offset": 437498528,
  "ideas": [
   {
@@ -81,5 +81,717 @@
   },
   "why": "Directly leverages the brake skid versus swerve visuals and hydraulic pulsing x-rays to bust a common driving myth.",
   "total": 37
+ },
+ "script": {
+  "topic": "How ABS Actually Works - Why Stamping Beats Pumping",
+  "youtube_title": "Brake Pedal పంప్ చేస్తే ABS ఫెయిల్ అవుతుందా? How ABS Works #Shorts",
+  "description": "Never pump your brakes in an ABS car! Discover how wheel speed sensors and hydraulic pulsing save your life, and why modern anti-lock brakes require you to stomp and steer. #ABS #CarSafety #TeluguAutomobile #AutoTech",
+  "hook_score": 9,
+  "predicted_retention_risks": [
+   "Drop-off risk around hydraulic explanation if the technical terms feel too dense.",
+   "Viewer drop-off at fact card if the transition is slow."
+  ],
+  "facts": [
+   {
+    "claim": "Modern ABS hydraulic modulators can pulse brake fluid pressure up to 15 to 20 times per second.",
+    "source": "unverified - please check"
+   },
+   {
+    "claim": "ABS became legally mandatory for all newly manufactured passenger cars (M1 category) in India from April 2019.",
+    "source": "unverified - please check"
+   },
+   {
+    "claim": "Pumping the brake pedal interferes with the ABS ECU algorithm and drastically increases stopping distances.",
+    "source": "unverified - please check"
+   }
+  ],
+  "beats": [
+   {
+    "scene": "wheel_closeup",
+    "words": [
+     [
+      "సెకనుకు",
+      "Sekanuku"
+     ],
+     [
+      "పదిహేను",
+      "padhihenu"
+     ],
+     [
+      "సార్లు",
+      "saarlu"
+     ],
+     [
+      "బ్రేకులను",
+      "brakulanu"
+     ],
+     [
+      "ఆన్",
+      "on"
+     ],
+     [
+      "అండ్",
+      "and"
+     ],
+     [
+      "ఆఫ్",
+      "off"
+     ],
+     [
+      "చేసే",
+      "chese"
+     ],
+     [
+      "అద్భుతమైన",
+      "adbhuthamaina"
+     ],
+     [
+      "టెక్నాలజీ",
+      "technology"
+     ],
+     [
+      "ABS!",
+      "ABS!"
+     ]
+    ],
+    "title": {
+     "text": "UP TO {#15}× A SECOND",
+     "sub": "brake pulses",
+     "style": ""
+    },
+    "label": {
+     "text": "PULSING CALIPER",
+     "kind": "",
+     "target": "caliper"
+    },
+    "retention": "High curiosity hook using a speed number and glowing brake visual."
+   },
+   {
+    "scene": "drive_drone",
+    "words": [
+     [
+      "ఎమర్జెన్సీ",
+      "Emergency"
+     ],
+     [
+      "బ్రేకింగ్",
+      "braking"
+     ],
+     [
+      "లో",
+      "lo"
+     ],
+     [
+      "మీరు",
+      "meeru"
+     ],
+     [
+      "బ్రేక్",
+      "brake"
+     ],
+     [
+      "పెడల్",
+      "pedal"
+     ],
+     [
+      "పదే",
+      "padhe"
+     ],
+     [
+      "పదే",
+      "padhe"
+     ],
+     [
+      "పంప్",
+      "pump"
+     ],
+     [
+      "చేస్తే",
+      "chesthe"
+     ],
+     [
+      "ప్రమాదమని",
+      "pramaadhamani"
+     ],
+     [
+      "మీకు",
+      "meeku"
+     ],
+     [
+      "తెలుసా?",
+      "thelusaa?"
+     ]
+    ],
+    "title": {
+     "text": "{NEVER} PUMP BRAKES",
+     "sub": "fatal habit",
+     "style": ""
+    },
+    "retention": "Challenges common driver intuition with high emotional stakes."
+   },
+   {
+    "scene": "xray_cabin",
+    "words": [
+     [
+      "అసలు",
+      "Asalu"
+     ],
+     [
+      "ఎందుకు?",
+      "endhuku?"
+     ],
+     [
+      "పాత",
+      "paatha"
+     ],
+     [
+      "పద్ధతిలో",
+      "paddhathilo"
+     ],
+     [
+      "పంప్",
+      "pump"
+     ],
+     [
+      "చేస్తే",
+      "chesthe"
+     ],
+     [
+      "ABS",
+      "ABS"
+     ],
+     [
+      "ఎందుకు",
+      "endhuku"
+     ],
+     [
+      "ఫెయిల్",
+      "fail"
+     ],
+     [
+      "అవుతుందో",
+      "avuthundho"
+     ],
+     [
+      "చూద్దాం!",
+      "chooddhaam!"
+     ]
+    ],
+    "title": {
+     "text": "WHY?",
+     "sub": "pedal mechanics",
+     "style": "big"
+    },
+    "label": {
+     "text": "BRAKE PEDAL",
+     "kind": "",
+     "target": "pedal"
+    },
+    "retention": "Full screen open loop forces viewer to stay for the technical explanation."
+   },
+   {
+    "scene": "brake_skid",
+    "words": [
+     [
+      "ABS",
+      "ABS"
+     ],
+     [
+      "లేని",
+      "leni"
+     ],
+     [
+      "కారులో",
+      "car-lo"
+     ],
+     [
+      "సడెన్",
+      "sudden"
+     ],
+     [
+      "బ్రేక్",
+      "brake"
+     ],
+     [
+      "వేస్తే",
+      "vesthe"
+     ],
+     [
+      "చక్రాలు",
+      "chakraalu"
+     ],
+     [
+      "వెంటనే",
+      "ventane"
+     ],
+     [
+      "జామ్",
+      "jam"
+     ],
+     [
+      "అయిపోయి",
+      "aipoyi"
+     ],
+     [
+      "రోడ్డుపై",
+      "road-pai"
+     ],
+     [
+      "కారు",
+      "car"
+     ],
+     [
+      "జారిపోతుంది.",
+      "jaaripothundhi."
+     ]
+    ],
+    "title": {
+     "text": "WHEEL LOCKUP",
+     "sub": "zero traction",
+     "style": ""
+    },
+    "label": {
+     "text": "SKID MARKS",
+     "kind": "red",
+     "target": "skid"
+    },
+    "retention": "Visually showcases catastrophic skid without electronic intervention."
+   },
+   {
+    "scene": "brake_skid",
+    "words": [
+     [
+      "చక్రాలు",
+      "Chakraalu"
+     ],
+     [
+      "తిరగకపోతే",
+      "thiragakpothe"
+     ],
+     [
+      "స్టీరింగ్",
+      "steering"
+     ],
+     [
+      "ఎంత",
+      "entha"
+     ],
+     [
+      "తిప్పినా",
+      "thippinaa"
+     ],
+     [
+      "సరే,",
+      "sare,"
+     ],
+     [
+      "కారు",
+      "car"
+     ],
+     [
+      "నేరుగా",
+      "nerugaa"
+     ],
+     [
+      "వెళ్లి",
+      "velli"
+     ],
+     [
+      "గుద్దుకుంటుంది!",
+      "guddhukuntundhi!"
+     ]
+    ],
+    "title": {
+     "text": "NO STEERING CONTROL",
+     "sub": "car slides straight",
+     "style": ""
+    },
+    "label": {
+     "text": "CRASH IMPACT",
+     "kind": "red",
+     "target": "barrier"
+    },
+    "retention": "Demonstrates why locked wheels make steering completely impossible."
+   },
+   {
+    "scene": "xray_orbit",
+    "words": [
+     [
+      "కానీ",
+      "Kaani"
+     ],
+     [
+      "ABS",
+      "ABS"
+     ],
+     [
+      "ఉన్నప్పుడు,",
+      "unnappudu,"
+     ],
+     [
+      "వీల్",
+      "wheel"
+     ],
+     [
+      "స్పీడ్",
+      "speed"
+     ],
+     [
+      "సెన్సార్లు",
+      "sensors"
+     ],
+     [
+      "చక్రం",
+      "chakram"
+     ],
+     [
+      "లాక్",
+      "lock"
+     ],
+     [
+      "అవుతోందని",
+      "avuthondhani"
+     ],
+     [
+      "వెంటనే",
+      "ventane"
+     ],
+     [
+      "ECU",
+      "ECU"
+     ],
+     [
+      "కి",
+      "ki"
+     ],
+     [
+      "చెబుతాయి.",
+      "chebuthaayi."
+     ]
+    ],
+    "title": {
+     "text": "SENSORS DETECT LOCK",
+     "sub": "computer alert",
+     "style": ""
+    },
+    "label": {
+     "text": "SPEED SENSOR",
+     "kind": "",
+     "target": "sensor"
+    },
+    "retention": "Shifts dynamically into the X-ray view revealing the smart tech."
+   },
+   {
+    "scene": "xray_brakes",
+    "words": [
+     [
+      "హైడ్రాలిక్",
+      "Hydraulic"
+     ],
+     [
+      "వాల్వ్స్",
+      "valves"
+     ],
+     [
+      "సెకనుకు",
+      "sekanuku"
+     ],
+     [
+      "పదిహేను",
+      "padhihenu"
+     ],
+     [
+      "సార్లు",
+      "saarlu"
+     ],
+     [
+      "బ్రేక్",
+      "brake"
+     ],
+     [
+      "ప్రెజర్",
+      "pressure"
+     ],
+     [
+      "ను",
+      "nu"
+     ],
+     [
+      "వదులుతూ",
+      "vadhuluthoo"
+     ],
+     [
+      "మళ్లీ",
+      "mallee"
+     ],
+     [
+      "పట్టుకుంటూ",
+      "pattukuntoo"
+     ],
+     [
+      "ఉంటాయి.",
+      "untaayi."
+     ]
+    ],
+    "title": {
+     "text": "CADENCE BRAKING",
+     "sub": "valves modulate",
+     "style": ""
+    },
+    "label": {
+     "text": "HYDRAULIC VALVE",
+     "kind": "green",
+     "target": "valve"
+    },
+    "retention": "Reveals the internal pulsing mechanism clearly solving the mystery."
+   },
+   {
+    "scene": "brake_swerve",
+    "words": [
+     [
+      "దీనివల్ల",
+      "Dheenivalla"
+     ],
+     [
+      "చక్రాలు",
+      "chakraalu"
+     ],
+     [
+      "తిరుగుతూనే",
+      "thiruguthoone"
+     ],
+     [
+      "ఉంటాయి,",
+      "untaayi,"
+     ],
+     [
+      "ప్రమాదం",
+      "pramaadham"
+     ],
+     [
+      "ఎదురైనా",
+      "edhurainaa"
+     ],
+     [
+      "మనం",
+      "manam"
+     ],
+     [
+      "కారును",
+      "car-nu"
+     ],
+     [
+      "స్టీరింగ్",
+      "steering"
+     ],
+     [
+      "చేసి",
+      "chesi"
+     ],
+     [
+      "తప్పించవచ్చు!",
+      "thappinchavacchu!"
+     ]
+    ],
+    "title": {
+     "text": "STOMP & STEER",
+     "sub": "obstacle avoided",
+     "style": ""
+    },
+    "label": {
+     "text": "FRONT WHEEL TURN",
+     "kind": "green",
+     "target": "wheel_front"
+    },
+    "retention": "Visual payoff: contrast to earlier crash showing car evading barrier."
+   },
+   {
+    "scene": "fact_card",
+    "words": [
+     [
+      "భారతదేశంలో",
+      "Bhaarathadeshamlo"
+     ],
+     [
+      "2019",
+      "2019"
+     ],
+     [
+      "నుండి",
+      "nundi"
+     ],
+     [
+      "తయారయ్యే",
+      "thayaarayye"
+     ],
+     [
+      "ప్రతి",
+      "prathi"
+     ],
+     [
+      "కొత్త",
+      "kottha"
+     ],
+     [
+      "కారులో",
+      "car-lo"
+     ],
+     [
+      "ABS",
+      "ABS"
+     ],
+     [
+      "ఫీచర్",
+      "feature"
+     ],
+     [
+      "తప్పనిసరి",
+      "thappanisaari"
+     ],
+     [
+      "చేశారు.",
+      "chesaaru."
+     ]
+    ],
+    "title": {
+     "text": "MANDATORY SAFETY",
+     "sub": "indian road law",
+     "style": ""
+    },
+    "card": {
+     "big": "2019",
+     "text": "ABS mandatory on all Indian cars"
+    },
+    "retention": "Hard data anchor establishes credibility with an impactful card."
+   },
+   {
+    "scene": "xray_cabin",
+    "words": [
+     [
+      "అందుకే",
+      "Andhuke"
+     ],
+     [
+      "ఎమర్జెన్సీలో",
+      "emergency-lo"
+     ],
+     [
+      "పంపింగ్",
+      "pumping"
+     ],
+     [
+      "చేయకండి,",
+      "cheyakandi,"
+     ],
+     [
+      "బ్రేక్",
+      "brake"
+     ],
+     [
+      "పెడల్",
+      "pedal"
+     ],
+     [
+      "గట్టిగా",
+      "gattigaa"
+     ],
+     [
+      "స్టాంప్",
+      "stamp"
+     ],
+     [
+      "చేసి",
+      "chesi"
+     ],
+     [
+      "స్టీరింగ్",
+      "steering"
+     ],
+     [
+      "మాత్రమే",
+      "maathrame"
+     ],
+     [
+      "తిప్పండి!",
+      "thippandi!"
+     ]
+    ],
+    "title": {
+     "text": "{DON'T PUMP}",
+     "sub": "trust the computer",
+     "style": ""
+    },
+    "label": {
+     "text": "STAMP DOWN HARD",
+     "kind": "green",
+     "target": "pedal"
+    },
+    "retention": "Actionable life-saving tip directly answering the core hook."
+   },
+   {
+    "scene": "hero_cta",
+    "words": [
+     [
+      "మీ",
+      "Mee"
+     ],
+     [
+      "కారులో",
+      "car-lo"
+     ],
+     [
+      "ABS",
+      "ABS"
+     ],
+     [
+      "పెడల్",
+      "pedal"
+     ],
+     [
+      "వైబ్రేషన్",
+      "vibration"
+     ],
+     [
+      "గమనించారా?",
+      "gamaninchaaraa?"
+     ],
+     [
+      "కామెంట్",
+      "Comment"
+     ],
+     [
+      "చేయండి,",
+      "cheyandi,"
+     ],
+     [
+      "ఇలాంటి",
+      "ilaanti"
+     ],
+     [
+      "ఇన్ఫో",
+      "info"
+     ],
+     [
+      "కోసం",
+      "kosam"
+     ],
+     [
+      "ఫాలో",
+      "follow"
+     ],
+     [
+      "అవ్వండి!",
+      "avvamdi!"
+     ]
+    ],
+    "title": {
+     "text": "FELT THE KICK?",
+     "sub": "comment below",
+     "style": ""
+    },
+    "retention": "Personal question triggers comments, ending with clean brand follow."
+   }
+  ],
+  "_no_search": true
  }
 }
