@@ -27,12 +27,54 @@ def extract_json(text):
     return json.loads(raw)
 
 
-def ask_claude(cfg, prompt, search=False, max_tokens=12000):
+def ask_llm(cfg, prompt, search=False, max_tokens=12000):
+    """Asks the configured AI (Gemini or Claude) and returns its JSON reply."""
+    if cfg["llm"].get("provider", "gemini") == "claude":
+        return extract_json(_claude(cfg, prompt, search, max_tokens))
+    return extract_json(_gemini(cfg, prompt, search, max_tokens))
+
+
+ask_claude = ask_llm  # old name
+
+
+def _gemini(cfg, prompt, search, max_tokens):
+    import time
+    import requests
+    key = env("GEMINI_API_KEY")
+    body = {"contents": [{"role": "user", "parts": [{"text": prompt}]}],
+            "generationConfig": {"maxOutputTokens": max_tokens, "temperature": 0.8}}
+    if search and cfg["llm"].get("web_search"):
+        body["tools"] = [{"google_search": {}}]
+    else:
+        body["generationConfig"]["responseMimeType"] = "application/json"
+    last = None
+    for model in [cfg["llm"]["gemini_model"], cfg["llm"].get("gemini_fallback")]:
+        if not model:
+            continue
+        for attempt in range(3):
+            r = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+                              headers={"x-goog-api-key": key, "Content-Type": "application/json"}, json=body, timeout=300)
+            if r.status_code == 200:
+                cands = r.json().get("candidates") or []
+                parts = cands[0].get("content", {}).get("parts", []) if cands else []
+                text = "".join(p.get("text", "") for p in parts)
+                if text.strip():
+                    return text
+                last = f"{model}: empty reply {r.text[:300]}"
+            else:
+                last = f"{model}: HTTP {r.status_code} {r.text[:300]}"
+                if r.status_code in (429, 500, 503):
+                    time.sleep(10 * (attempt + 1))
+                    continue
+            break
+    raise RuntimeError("Gemini failed - " + str(last))
+
+
+def _claude(cfg, prompt, search, max_tokens):
     import anthropic
     client = anthropic.Anthropic(api_key=env("ANTHROPIC_API_KEY"))
-    kwargs = dict(model=cfg["llm"]["model"], max_tokens=max_tokens, messages=[{"role": "user", "content": prompt}])
+    kwargs = dict(model=cfg["llm"]["claude_model"], max_tokens=max_tokens, messages=[{"role": "user", "content": prompt}])
     if search and cfg["llm"].get("web_search"):
         kwargs["tools"] = [{"type": "web_search_20250305", "name": "web_search", "max_uses": 6}]
     msg = client.messages.create(**kwargs)
-    text = "".join(b.text for b in msg.content if getattr(b, "type", "") == "text")
-    return extract_json(text)
+    return "".join(b.text for b in msg.content if getattr(b, "type", "") == "text")

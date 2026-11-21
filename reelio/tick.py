@@ -14,7 +14,7 @@ import subprocess
 from pathlib import Path
 
 from . import prompts, telegram, youtube
-from .core import ROOT, ask_claude, load_config
+from .core import ROOT, ask_llm, load_config
 
 STATE = ROOT / "state" / "state.json"
 IST = dt.timezone(dt.timedelta(hours=5, minutes=30))
@@ -44,7 +44,7 @@ def script_message(sc):
 
 
 def start_ideas(cfg, s):
-    ideas = ask_claude(cfg, prompts.ideas_prompt(cfg, s.get("history", [])[-15:]))["ideas"][:5]
+    ideas = ask_llm(cfg, prompts.ideas_prompt(cfg, s.get("history", [])[-15:]))["ideas"][:5]
     for i in ideas:
         sc = i["scores"]
         i["total"] = sc["hook"] + sc["curiosity"] + sc["fit_3d"] + sc["shareability"]
@@ -61,7 +61,7 @@ def start_ideas(cfg, s):
 
 def write_script(cfg, s, feedback=None):
     telegram.send("✍️ Writing the script (checking facts too)…" if not feedback else "✍️ Revising…")
-    sc = ask_claude(cfg, prompts.script_prompt(cfg, s["idea"], feedback, s.get("script") if feedback else None), search=True)
+    sc = ask_llm(cfg, prompts.script_prompt(cfg, s["idea"], feedback, s.get("script") if feedback else None), search=True)
     s.update(stage="await_script", script=sc)
     telegram.send(script_message(sc))
 

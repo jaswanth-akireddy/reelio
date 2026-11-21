@@ -1,5 +1,5 @@
-anthropic>=0.40
 requests>=2.31
 pyyaml>=6.0
 numpy>=1.26
 scipy>=1.11
+anthropic>=0.40   # only needed when llm.provider is "claude"
