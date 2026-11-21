@@ -14,7 +14,7 @@ def load_config():
 
 
 def env(name, required=True):
-    v = os.environ.get(name, "").strip()
+    v = "".join(os.environ.get(name, "").split())  # keys never contain spaces; strip any pasted by accident
     if required and not v:
         raise SystemExit(f"Missing secret {name}. Add it in GitHub → Settings → Secrets and variables → Actions.")
     return v

@@ -7,8 +7,13 @@ API = "https://api.telegram.org/bot{}/{}"
 
 
 def _call(method, **kw):
-    r = requests.post(API.format(env("TELEGRAM_BOT_TOKEN"), method), timeout=120, **kw)
-    r.raise_for_status()
+    try:
+        r = requests.post(API.format(env("TELEGRAM_BOT_TOKEN"), method), timeout=120, **kw)
+    except requests.RequestException as e:
+        raise RuntimeError(f"Telegram {method}: network error {type(e).__name__}") from None
+    if r.status_code != 200:  # never include the URL: it contains the bot token
+        hint = " (check TELEGRAM_BOT_TOKEN)" if r.status_code in (401, 404) else ""
+        raise RuntimeError(f"Telegram {method} failed: HTTP {r.status_code} {r.text[:200]}{hint}")
     return r.json()["result"]
 
 
