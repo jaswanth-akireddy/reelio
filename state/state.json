@@ -1,6 +1,6 @@
 {
  "stage": "await_pick",
- "tg_offset": 437498527,
+ "tg_offset": 437498528,
  "ideas": [
   {
    "topic": "Brake Fade on Ghat Roads",
@@ -68,5 +68,18 @@
    "total": 33
   }
  ],
- "date": "2026-11-22"
+ "date": "2026-11-22",
+ "idea": {
+  "topic": "How ABS Actually Works",
+  "angle": "Why stamping the pedal saves your life while pumping the brakes destroys ABS efficiency.",
+  "hook_line_en": "15 times in a single second — that is how fast your car fights death for you.",
+  "scores": {
+   "hook": 9,
+   "curiosity": 9,
+   "fit_3d": 10,
+   "shareability": 9
+  },
+  "why": "Directly leverages the brake skid versus swerve visuals and hydraulic pulsing x-rays to bust a common driving myth.",
+  "total": 37
+ }
 }
