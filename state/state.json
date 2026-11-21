@@ -1,4 +1,72 @@
 {
- "stage": "idle",
- "tg_offset": 0
+ "stage": "await_pick",
+ "tg_offset": 437498527,
+ "ideas": [
+  {
+   "topic": "Brake Fade on Ghat Roads",
+   "angle": "Why riding your brakes downhill overheats the fluid and causes sudden total brake failure.",
+   "hook_line_en": "650 degrees Celsius — the exact temperature where your car brakes simply stop existing.",
+   "scores": {
+    "hook": 9,
+    "curiosity": 10,
+    "fit_3d": 9,
+    "shareability": 10
+   },
+   "why": "Highly relevant to Telugu drivers traveling Srisailam or Tirumala ghats, perfectly matching the glowing caliper and skid scenes.",
+   "total": 38
+  },
+  {
+   "topic": "How ABS Actually Works",
+   "angle": "Why stamping the pedal saves your life while pumping the brakes destroys ABS efficiency.",
+   "hook_line_en": "15 times in a single second — that is how fast your car fights death for you.",
+   "scores": {
+    "hook": 9,
+    "curiosity": 9,
+    "fit_3d": 10,
+    "shareability": 9
+   },
+   "why": "Directly leverages the brake skid versus swerve visuals and hydraulic pulsing x-rays to bust a common driving myth.",
+   "total": 37
+  },
+  {
+   "topic": "Can Pro Drivers Outbrake ABS?",
+   "angle": "Busting the popular old-school claim that manual pumping stops faster than modern ECU sensors.",
+   "hook_line_en": "A veteran driver reacts in 700 milliseconds, but this tiny sensor reacts in 5.",
+   "scores": {
+    "hook": 9,
+    "curiosity": 9,
+    "fit_3d": 10,
+    "shareability": 9
+   },
+   "why": "Sparks intense comment debates between experienced drivers and tech fans using side-by-side skid and swerve physics.",
+   "total": 37
+  },
+  {
+   "topic": "Why India Banned Non-ABS Cars",
+   "angle": "The life-saving engineering and crash data that forced the mandatory ABS rule in India.",
+   "hook_line_en": "One single 2019 law slashed fatal highway lockup crashes across India by 30 percent.",
+   "scores": {
+    "hook": 8,
+    "curiosity": 8,
+    "fit_3d": 9,
+    "shareability": 9
+   },
+   "why": "Blends regulatory history with high-stakes physics using the fact-card timeline alongside dramatic crash-avoidance footage.",
+   "total": 34
+  },
+  {
+   "topic": "EBD: Stopping the Spin-Out",
+   "angle": "How weight transfer unweights rear tires during hard stops and why computers balance pressure to prevent spinning.",
+   "hook_line_en": "70 percent of your car's weight lunges forward in less than 300 milliseconds.",
+   "scores": {
+    "hook": 8,
+    "curiosity": 8,
+    "fit_3d": 9,
+    "shareability": 8
+   },
+   "why": "Explains invisible vehicle dynamics clearly using wheel speed sensor glow, hydraulic valves, and obstacle evasion.",
+   "total": 33
+  }
+ ],
+ "date": "2026-11-22"
 }
