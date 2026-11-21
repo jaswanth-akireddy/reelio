@@ -37,6 +37,8 @@ def script_message(sc):
         lines += [f"{i}. [{b['scene']}] {title}", f"   {te}", f"   ({ro})", f"   ↳ {b.get('retention', '')}", ""]
     if sc.get("predicted_retention_risks"):
         lines += ["⚠️ Swipe-away risks:"] + [f"• {r}" for r in sc["predicted_retention_risks"]] + [""]
+    if sc.get("_no_search"):
+        lines += ["⚠️ Facts were NOT web-checked this time (search quota). Please verify the numbers below.", ""]
     if sc.get("facts"):
         lines += ["🔎 Facts to double-check:"] + [f"• {f['claim']} — {f.get('source', '')}" for f in sc["facts"]] + [""]
     lines += [f"YouTube title: {sc.get('youtube_title', '')}", "", "Reply 'ok' to make the video, or type changes you want."]
@@ -104,6 +106,8 @@ def needs_run():
     now = dt.datetime.now(IST)
     if s["stage"] == "idle" and s.get("date") != now.date().isoformat() and now.hour >= cfg["schedule"]["ideas_hour_ist"]:
         return True
+    if s["stage"] == "await_pick" and s.get("idea") and not s.get("script"):
+        return True
     ups = telegram._call("getUpdates", data={"offset": s.get("tg_offset", 0), "timeout": 0})  # peeks without consuming
     return any(str(u.get("message", {}).get("chat", {}).get("id")) == str(telegram.env("TELEGRAM_CHAT_ID")) for u in ups)
 
@@ -147,6 +151,9 @@ def main():
                     publish(cfg, s)
                 elif low.startswith("redo"):
                     write_script(cfg, s, feedback=m[4:].strip() or "make it better")
+            save(s)
+        if s["stage"] == "await_pick" and s.get("idea") and not s.get("script"):  # resume a pick whose script failed
+            write_script(cfg, s)
             save(s)
         if s["stage"] == "idle" and s.get("date") != now.date().isoformat() and now.hour >= cfg["schedule"]["ideas_hour_ist"]:
             start_ideas(cfg, s)

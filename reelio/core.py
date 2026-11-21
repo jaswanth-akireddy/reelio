@@ -31,7 +31,15 @@ def ask_llm(cfg, prompt, search=False, max_tokens=12000):
     """Asks the configured AI (Gemini or Claude) and returns its JSON reply."""
     if cfg["llm"].get("provider", "gemini") == "claude":
         return extract_json(_claude(cfg, prompt, search, max_tokens))
-    return extract_json(_gemini(cfg, prompt, search, max_tokens))
+    try:
+        return extract_json(_gemini(cfg, prompt, search, max_tokens))
+    except RuntimeError as e:
+        if not search:
+            raise
+        print("Gemini with Google Search failed, retrying without search:", e, flush=True)
+        out = extract_json(_gemini(cfg, prompt + "\n\n(Web search is unavailable: only use facts you are certain of, and mark each fact's source as 'unverified - please check'.)", False, max_tokens))
+        out["_no_search"] = True
+        return out
 
 
 ask_claude = ask_llm  # old name
