@@ -1,0 +1,613 @@
+{
+ "topic": "How ABS works",
+ "youtube_title": "మీ కారు సెకనుకి 15 సార్లు బ్రేక్ వేస్తుంది! 🤯 #Shorts",
+ "description": "ABS ఎలా పని చేస్తుందో 60 సెకన్లలో. #ABS #cars #telugu",
+ "beats": [
+  {
+   "scene": "wheel_closeup",
+   "words": [
+    [
+     "మీ",
+     "Mee"
+    ],
+    [
+     "కారు",
+     "caaru"
+    ],
+    [
+     "ఒక్క",
+     "okka"
+    ],
+    [
+     "సెకనులో",
+     "second-lo"
+    ],
+    [
+     "15",
+     "15"
+    ],
+    [
+     "సార్లు",
+     "saarlu"
+    ],
+    [
+     "బ్రేక్",
+     "brake"
+    ],
+    [
+     "వేయగలదు.",
+     "veyagaladu."
+    ]
+   ],
+   "title": {
+    "text": "UP TO {#15}× A SECOND",
+    "sub": "brake pulses"
+   },
+   "label": {
+    "text": "BRAKE CALIPER",
+    "target": "caliper"
+   }
+  },
+  {
+   "scene": "wheel_closeup",
+   "words": [
+    [
+     "మీ",
+     "Mee"
+    ],
+    [
+     "కాలు",
+     "kaalu"
+    ],
+    [
+     "కూడా",
+     "kooda"
+    ],
+    [
+     "అంత",
+     "antha"
+    ],
+    [
+     "వేగంగా",
+     "vegamgaa"
+    ],
+    [
+     "చేయలేదు.",
+     "cheyaledu."
+    ]
+   ],
+   "title": {
+    "text": "FASTER THAN {YOUR FOOT}",
+    "sub": "no driver can pump that fast"
+   }
+  },
+  {
+   "scene": "drive_drone",
+   "words": [
+    [
+     "దీని",
+     "Deeni"
+    ],
+    [
+     "పేరు",
+     "peru"
+    ],
+    [
+     "ABS.",
+     "ABS."
+    ]
+   ],
+   "title": {
+    "text": "{ABS}",
+    "sub": "anti-lock braking system"
+   },
+   "label": {
+    "text": "ABS",
+    "target": "roof"
+   }
+  },
+  {
+   "scene": "drive_drone",
+   "words": [
+    [
+     "కానీ",
+     "Kaani"
+    ],
+    [
+     "ఇది",
+     "idi"
+    ],
+    [
+     "ఎందుకు",
+     "enduku"
+    ],
+    [
+     "అవసరమో",
+     "avasaramo"
+    ],
+    [
+     "మీకు",
+     "meeku"
+    ],
+    [
+     "తెలుసా?",
+     "thelusaa?"
+    ]
+   ],
+   "title": {
+    "text": "WHY?",
+    "style": "big"
+   }
+  },
+  {
+   "scene": "brake_skid",
+   "words": [
+    [
+     "సడన్‌గా",
+     "Sudden-gaa"
+    ],
+    [
+     "గట్టిగా",
+     "gattigaa"
+    ],
+    [
+     "బ్రేక్",
+     "brake"
+    ],
+    [
+     "వేస్తే,",
+     "veste,"
+    ],
+    [
+     "చక్రాలు",
+     "chakraalu"
+    ],
+    [
+     "లాక్",
+     "lock"
+    ],
+    [
+     "అవుతాయి.",
+     "avuthaayi."
+    ]
+   ],
+   "title": {
+    "text": "PANIC {BRAKING}",
+    "sub": "without ABS"
+   },
+   "label": {
+    "text": "ABS OFF",
+    "kind": "red",
+    "target": "roof"
+   }
+  },
+  {
+   "scene": "brake_skid",
+   "words": [
+    [
+     "టైర్లు",
+     "Tyres"
+    ],
+    [
+     "తిరగకుండా",
+     "thiragakundaa"
+    ],
+    [
+     "రోడ్డు",
+     "road"
+    ],
+    [
+     "మీద",
+     "meeda"
+    ],
+    [
+     "జారిపోతాయి.",
+     "jaaripothaayi."
+    ]
+   ],
+   "title": {
+    "text": "WHEELS {LOCK}",
+    "sub": "the tyres slide instead of rolling"
+   },
+   "label": {
+    "text": "LOCKED",
+    "kind": "red",
+    "target": "wheel_rear"
+   }
+  },
+  {
+   "scene": "brake_skid",
+   "words": [
+    [
+     "అప్పుడు",
+     "Appudu"
+    ],
+    [
+     "స్టీరింగ్",
+     "steering"
+    ],
+    [
+     "తిప్పినా",
+     "thippinaa"
+    ],
+    [
+     "కారు",
+     "caaru"
+    ],
+    [
+     "తిరగదు.",
+     "thiragadu."
+    ]
+   ],
+   "title": {
+    "text": "NO {STEERING}",
+    "sub": "the car slides straight on"
+   },
+   "label": {
+    "text": "WHEELS TURNED",
+    "target": "wheel_front"
+   }
+  },
+  {
+   "scene": "xray_orbit",
+   "words": [
+    [
+     "అందుకే",
+     "Andhuke"
+    ],
+    [
+     "ప్రతి",
+     "prathi"
+    ],
+    [
+     "చక్రానికి",
+     "chakraaniki"
+    ],
+    [
+     "ఒక",
+     "oka"
+    ],
+    [
+     "స్పీడ్",
+     "speed"
+    ],
+    [
+     "సెన్సార్",
+     "sensor"
+    ],
+    [
+     "ఉంటుంది.",
+     "untundi."
+    ]
+   ],
+   "title": {
+    "text": "SPEED {SENSORS}",
+    "sub": "one at every wheel"
+   },
+   "label": {
+    "text": "SPEED SENSOR",
+    "target": "sensor"
+   }
+  },
+  {
+   "scene": "xray_orbit",
+   "words": [
+    [
+     "ABS",
+     "ABS"
+    ],
+    [
+     "కంప్యూటర్",
+     "computer"
+    ],
+    [
+     "నాలుగు",
+     "naalugu"
+    ],
+    [
+     "చక్రాలను",
+     "chakraalanu"
+    ],
+    [
+     "నిరంతరం",
+     "nirantharam"
+    ],
+    [
+     "గమనిస్తుంది.",
+     "gamanisthundi."
+    ]
+   ],
+   "title": {
+    "text": "ABS {COMPUTER}",
+    "sub": "compares all four wheels"
+   },
+   "label": {
+    "text": "ABS COMPUTER",
+    "target": "ecu"
+   }
+  },
+  {
+   "scene": "xray_brakes",
+   "words": [
+    [
+     "ఒక",
+     "Oka"
+    ],
+    [
+     "చక్రం",
+     "chakram"
+    ],
+    [
+     "లాక్",
+     "lock"
+    ],
+    [
+     "అవ్వబోతే,",
+     "avvabothe,"
+    ],
+    [
+     "వాల్వ్",
+     "valve"
+    ],
+    [
+     "ప్రెషర్",
+     "pressure"
+    ],
+    [
+     "తగ్గిస్తుంది.",
+     "thaggisthundi."
+    ]
+   ],
+   "title": {
+    "text": "VALVE {RELEASES}",
+    "sub": "brake pressure drops"
+   },
+   "label": {
+    "text": "VALVE",
+    "target": "valve"
+   }
+  },
+  {
+   "scene": "xray_brakes",
+   "words": [
+    [
+     "తర్వాత",
+     "Tharvaatha"
+    ],
+    [
+     "పంప్",
+     "pump"
+    ],
+    [
+     "మళ్ళీ",
+     "malli"
+    ],
+    [
+     "ప్రెషర్",
+     "pressure"
+    ],
+    [
+     "పెంచుతుంది.",
+     "penchuthundi."
+    ]
+   ],
+   "title": {
+    "text": "PUMP {REAPPLIES}",
+    "sub": "up to 15 times a second"
+   },
+   "label": {
+    "text": "PUMP",
+    "target": "pump"
+   }
+  },
+  {
+   "scene": "brake_swerve",
+   "words": [
+    [
+     "అందుకే",
+     "Andhuke"
+    ],
+    [
+     "చక్రాలు",
+     "chakraalu"
+    ],
+    [
+     "తిరుగుతూనే",
+     "thiruguthoone"
+    ],
+    [
+     "ఉంటాయి,",
+     "untaayi,"
+    ],
+    [
+     "మీరు",
+     "meeru"
+    ],
+    [
+     "స్టీర్",
+     "steer"
+    ],
+    [
+     "చేయగలరు.",
+     "cheyagalaru."
+    ]
+   ],
+   "title": {
+    "text": "YOU CAN {STEER}",
+    "sub": "even while braking hard"
+   },
+   "label": {
+    "text": "ABS ON",
+    "kind": "green",
+    "target": "roof"
+   }
+  },
+  {
+   "scene": "fact_card",
+   "words": [
+    [
+     "1978లో",
+     "1978-lo"
+    ],
+    [
+     "మెర్సిడెస్",
+     "Mercedes"
+    ],
+    [
+     "S-క్లాస్‌లో",
+     "S-Class-lo"
+    ],
+    [
+     "బాష్",
+     "Bosch"
+    ],
+    [
+     "ABS",
+     "ABS"
+    ],
+    [
+     "మొదలైంది.",
+     "modalaindi."
+    ]
+   ],
+   "title": {
+    "text": "FROM LUXURY TO {STANDARD}",
+    "sub": "how ABS spread"
+   },
+   "card": {
+    "big": "1978",
+    "text": "Mercedes-Benz S-Class, with Bosch"
+   }
+  },
+  {
+   "scene": "fact_card",
+   "words": [
+    [
+     "2019",
+     "2019"
+    ],
+    [
+     "నుంచి",
+     "nunchi"
+    ],
+    [
+     "ఇండియాలో",
+     "India-lo"
+    ],
+    [
+     "ప్రతి",
+     "prathi"
+    ],
+    [
+     "కొత్త",
+     "kotha"
+    ],
+    [
+     "కారుకి",
+     "caaru-ki"
+    ],
+    [
+     "ఇది",
+     "idi"
+    ],
+    [
+     "తప్పనిసరి.",
+     "thappanisari."
+    ]
+   ],
+   "card": {
+    "big": "2019",
+    "text": "Mandatory on every new car in India"
+   }
+  },
+  {
+   "scene": "xray_cabin",
+   "words": [
+    [
+     "గట్టిగా",
+     "Gattigaa"
+    ],
+    [
+     "బ్రేక్",
+     "brake"
+    ],
+    [
+     "వేసినప్పుడు",
+     "vesinappudu"
+    ],
+    [
+     "పెడల్",
+     "pedal"
+    ],
+    [
+     "వణుకుతుందా?",
+     "vanukuthundaa?"
+    ],
+    [
+     "అది",
+     "Adi"
+    ],
+    [
+     "ABS",
+     "ABS"
+    ],
+    [
+     "పని",
+     "pani"
+    ],
+    [
+     "చేస్తోంది.",
+     "chesthondi."
+    ]
+   ],
+   "title": {
+    "text": "PEDAL {BUZZING?}",
+    "sub": "that's ABS working"
+   },
+   "label": {
+    "text": "BRAKE PEDAL",
+    "target": "pedal"
+   }
+  },
+  {
+   "scene": "hero_cta",
+   "words": [
+    [
+     "ఇది",
+     "Idi"
+    ],
+    [
+     "మీకు",
+     "meeku"
+    ],
+    [
+     "ముందే",
+     "munde"
+    ],
+    [
+     "తెలుసా?",
+     "thelusaa?"
+    ],
+    [
+     "కామెంట్స్‌లో",
+     "comments-lo"
+    ],
+    [
+     "చెప్పండి,",
+     "cheppandi,"
+    ],
+    [
+     "ఫాలో",
+     "follow"
+    ],
+    [
+     "అవ్వండి!",
+     "avvandi!"
+    ]
+   ],
+   "title": {
+    "text": "DID YOU {KNOW?}"
+   }
+  }
+ ]
+}

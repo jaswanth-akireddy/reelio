@@ -1,0 +1,6 @@
+{
+  "name": "reelio-render",
+  "private": true,
+  "description": "Headless renderer for the Reelio 3D video template",
+  "dependencies": { "playwright": "1.48.2" }
+}

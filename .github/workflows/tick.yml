@@ -1,0 +1,62 @@
+name: reelio
+
+on:
+  schedule:
+    - cron: "*/30 2-18 * * *"   # every 30 min, 7:30 am – 12:00 midnight IST
+  workflow_dispatch: {}
+
+concurrency:
+  group: reelio
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+env:
+  ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+  ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+  TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+  TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+  YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+  YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+  YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+  GH_TOKEN: ${{ github.token }}
+
+jobs:
+  check:   # quick and cheap: anything new on Telegram, or ideas due?
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      need: ${{ steps.c.outputs.need }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q requests pyyaml
+      - id: c
+        run: python -m reelio.tick --check
+
+  run:
+    needs: check
+    if: needs.check.outputs.need == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - run: pip install -r requirements.txt
+      - name: Install renderer
+        run: |
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-inter
+      - name: Advance the pipeline
+        run: python -m reelio.tick
+      - name: Save state
+        if: always()
+        run: |
+          git config user.name "reelio-bot"
+          git config user.email "reelio-bot@users.noreply.github.com"
+          git add state/state.json
+          git diff --cached --quiet || (git commit -m "state: update" && git pull --rebase -q && git push)
