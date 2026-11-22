@@ -66,10 +66,11 @@ def produce(cfg, script, work: Path, fake_voice=False):
     final = work / "final.mp4"
     vol = cfg["video"]["music_volume"]
     if audio:
-        fc = (f"[1:a]adelay={int(voice.LEAD_IN * 1000)}:all=1,apad[v];[2:a]volume={vol}[m];"
-              f"[m][v]sidechaincompress=threshold=0.03:ratio=6:attack=20:release=300[md];[v][md]amix=inputs=2:duration=longest:normalize=0[a]")
+        fc = (f"[1:a]adelay={int(voice.LEAD_IN * 1000)}:all=1,apad,asplit=2[vo1][vo2];[2:a]volume={vol}[mus];"
+              f"[mus][vo1]sidechaincompress=threshold=0.03:ratio=6:attack=20:release=300[duck];"
+              f"[vo2][duck]amix=inputs=2:duration=longest:normalize=0[aout]")
         run(["ffmpeg", "-y", "-loglevel", "error", "-i", silent, "-i", audio, "-i", work / "music.wav", "-filter_complex", fc,
-             "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-shortest", "-movflags", "+faststart", final])
+             "-map", "0:v", "-map", "[aout]", "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-shortest", "-movflags", "+faststart", final])
     else:
         run(["ffmpeg", "-y", "-loglevel", "error", "-i", silent, "-i", work / "music.wav", "-map", "0:v", "-map", "1:a",
              "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-shortest", "-movflags", "+faststart", final])

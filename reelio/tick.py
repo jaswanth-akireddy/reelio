@@ -77,7 +77,12 @@ def make_video(cfg, s, run_id):
     subprocess.run(["gh", "release", "create", tag, str(final), "--prerelease", "--title", s["script"]["topic"],
                     "--notes", s["script"].get("youtube_title", "")], check=True)
     s.update(stage="await_publish", release=tag)
-    telegram.send_video(final, caption=f"🎬 {s['script'].get('youtube_title', '')}")
+    preview = final
+    if final.stat().st_size > 45 * 1024 * 1024:  # Telegram bots can only send up to 50 MB
+        preview = final.with_name("preview.mp4")
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(final), "-c:v", "libx264", "-crf", "28", "-preset", "veryfast",
+                        "-c:a", "copy", str(preview)], check=True)
+    telegram.send_video(preview, caption=f"🎬 {s['script'].get('youtube_title', '')}")
     telegram.send("Reply 'publish' to post it, or 'redo <what to change>' to rewrite.")
 
 
