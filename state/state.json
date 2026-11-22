@@ -1,5 +1,5 @@
 {
- "stage": "await_script",
+ "stage": "await_publish",
  "tg_offset": 437498531,
  "ideas": [
   {
@@ -772,5 +772,6 @@
     "retention": "A short CTA that leads into the follow end card."
    }
   ]
- }
+ },
+ "release": "video-45026544339"
 }
