@@ -23,12 +23,27 @@ def env(name, required=True):
 def extract_json(text):
     m = re.search(r"```(?:json)?\s*(\{.*\})\s*```", text, re.S)
     raw = m.group(1) if m else text[text.find("{"): text.rfind("}") + 1]
-    raw = re.sub(r"//[^\n\"]*$", "", raw, flags=re.M)  # tolerate // comments copied from the prompt
-    return json.loads(raw)
+    try:
+        return json.loads(raw)
+    except json.JSONDecodeError:
+        # tolerate // comments copied from the prompt and trailing commas
+        fixed = re.sub(r"^\s*//.*$", "", raw, flags=re.M)
+        fixed = re.sub(r",\s*([}\]])", r"\1", fixed)
+        return json.loads(fixed)
 
 
 def ask_llm(cfg, prompt, search=False, max_tokens=12000):
-    """Asks the configured AI (Gemini or Claude) and returns its JSON reply."""
+    """Asks the configured AI and returns its JSON reply, retrying if the JSON is malformed."""
+    for attempt in range(3):
+        try:
+            return _ask_llm(cfg, prompt if attempt == 0 else prompt + "\n\nIMPORTANT: your last reply was not valid JSON. "
+                            "Reply with one valid JSON object only; escape any double quotes inside strings.", search, max_tokens)
+        except json.JSONDecodeError as e:
+            print(f"Invalid JSON from the AI (attempt {attempt + 1}): {e}", flush=True)
+    raise RuntimeError("The AI did not return valid JSON after 3 tries")
+
+
+def _ask_llm(cfg, prompt, search=False, max_tokens=12000):
     provider = cfg["llm"].get("provider", "gemini")
     if provider == "claude_code":
         return extract_json(_claude_code(cfg, prompt, search))
