@@ -21,7 +21,9 @@ llm:
 
 voice:
   provider: "elevenlabs"
-  voice_id: "nbCEMhgrRe2fw9nGq2Ma"
+  voice_id: "nPczCjzI2devNBz1zQrb"   # "Brian", a built-in voice the free plan can use through the API
+  # your Voice Library pick (needs a paid plan for API use): "nbCEMhgrRe2fw9nGq2Ma"
+  fallback_voice_id: "nPczCjzI2devNBz1zQrb"   # used automatically if a voice needs a paid plan
   model_id: "eleven_v4"             # Telugu needs eleven_v4 or eleven_v3
   stability: 0.45
   similarity_boost: 0.8

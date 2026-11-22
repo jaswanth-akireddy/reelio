@@ -20,13 +20,10 @@ def synthesize(cfg, script, out_audio):
     v = cfg["voice"]
     words = spoken_words(script)
     text = " ".join(w[0] for w in words)
-    r = requests.post(
-        f"https://api.elevenlabs.io/v1/text-to-speech/{v['voice_id']}/with-timestamps",
-        headers={"xi-api-key": env("ELEVENLABS_API_KEY"), "Content-Type": "application/json"},
-        params={"output_format": "mp3_44100_128"},
-        json={"text": text, "model_id": v["model_id"], "language_code": "te",
-              "voice_settings": {"stability": v["stability"], "similarity_boost": v["similarity_boost"], "speed": v.get("speed", 1.0)}},
-        timeout=300)
+    r = _tts(v, v["voice_id"], text)
+    if r.status_code == 402 and v.get("fallback_voice_id") and v["fallback_voice_id"] != v["voice_id"]:
+        print("Voice needs a paid plan; using the fallback voice", flush=True)
+        r = _tts(v, v["fallback_voice_id"], text)
     if r.status_code != 200:
         raise RuntimeError(f"ElevenLabs error {r.status_code}: {r.text[:500]}")
     data = r.json()
@@ -34,6 +31,16 @@ def synthesize(cfg, script, out_audio):
         f.write(base64.b64decode(data["audio_base64"]))
     al = data.get("alignment") or data.get("normalized_alignment")
     return word_times(text, words, al)
+
+
+def _tts(v, voice_id, text):
+    return requests.post(
+        f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps",
+        headers={"xi-api-key": env("ELEVENLABS_API_KEY"), "Content-Type": "application/json"},
+        params={"output_format": "mp3_44100_128"},
+        json={"text": text, "model_id": v["model_id"], "language_code": "te",
+              "voice_settings": {"stability": v["stability"], "similarity_boost": v["similarity_boost"], "speed": v.get("speed", 1.0)}},
+        timeout=300)
 
 
 def word_times(text, words, al):
