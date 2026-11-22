@@ -3,7 +3,12 @@ name: reelio
 on:
   schedule:
     - cron: "7,37 2-18 * * *"   # twice an hour (:07 and :37 UTC = :37 and :07 IST), 7:30 am – midnight IST
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      command:
+        description: "Optional: act as if you sent this on Telegram (e.g. ok, /ideas, 2, publish)"
+        required: false
+        default: ""
 
 concurrency:
   group: reelio
@@ -55,6 +60,8 @@ jobs:
           npx playwright install --with-deps chromium
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-inter
       - name: Advance the pipeline
+        env:
+          REELIO_COMMAND: ${{ github.event.inputs.command }}
         run: python -m reelio.tick
       - name: Save state
         if: always()

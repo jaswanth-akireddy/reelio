@@ -113,7 +113,7 @@ def needs_run():
 
 
 def main():
-    import os
+    import os  # noqa
     import sys
     if "--check" in sys.argv:
         need = needs_run()
@@ -125,6 +125,8 @@ def main():
     cfg = load_config()
     s = load()
     msgs, s["tg_offset"] = telegram.replies(s.get("tg_offset", 0))
+    if os.environ.get("REELIO_COMMAND", "").strip():  # manual run from the Actions tab
+        msgs.append(os.environ["REELIO_COMMAND"].strip())
     save(s)  # never re-read the same messages, even if a later step fails
     run_id = os.environ.get("GITHUB_RUN_ID", "local")
     now = dt.datetime.now(IST)
