@@ -1,71 +1,71 @@
 {
- "stage": "await_script",
- "tg_offset": 437498530,
+ "stage": "await_pick",
+ "tg_offset": 437498531,
  "ideas": [
   {
-   "topic": "Brake Fade on Ghat Roads",
-   "angle": "Why riding your brakes downhill overheats the fluid and causes sudden total brake failure.",
-   "hook_line_en": "650 degrees Celsius — the exact temperature where your car brakes simply stop existing.",
-   "scores": {
-    "hook": 9,
-    "curiosity": 10,
-    "fit_3d": 9,
-    "shareability": 10
-   },
-   "why": "Highly relevant to Telugu drivers traveling Srisailam or Tirumala ghats, perfectly matching the glowing caliper and skid scenes.",
-   "total": 38
-  },
-  {
-   "topic": "How ABS Actually Works",
-   "angle": "Why stamping the pedal saves your life while pumping the brakes destroys ABS efficiency.",
-   "hook_line_en": "15 times in a single second — that is how fast your car fights death for you.",
+   "topic": "ABS: Why You Can Steer While Slamming Brakes",
+   "angle": "ABS releases and re-applies brake pressure about 15 times a second, so the wheels never lock and the car keeps steering around the obstacle. Without ABS, the car slides straight into the barrier.",
+   "hook_line_en": "Your car's brakes switch on and off 15 times every second.",
    "scores": {
     "hook": 9,
     "curiosity": 9,
     "fit_3d": 10,
-    "shareability": 9
+    "shareability": 8
    },
-   "why": "Directly leverages the brake skid versus swerve visuals and hydraulic pulsing x-rays to bust a common driving myth.",
-   "total": 37
+   "why": "It fits the engine's scenes exactly (brake_skid vs brake_swerve, then xray_orbit, xray_brakes and xray_cabin) and it has a surprising number up front.",
+   "total": 36
   },
   {
-   "topic": "Can Pro Drivers Outbrake ABS?",
-   "angle": "Busting the popular old-school claim that manual pumping stops faster than modern ECU sensors.",
-   "hook_line_en": "A veteran driver reacts in 700 milliseconds, but this tiny sensor reacts in 5.",
+   "topic": "Why Slamming the Brake Pedal Makes It Vibrate",
+   "angle": "The pedal shudder that scares many drivers is the ABS pump working. It means the system is saving you, so don't lift your foot.",
+   "hook_line_en": "When your brake pedal shakes in an emergency, most drivers do the one thing that can kill them.",
    "scores": {
     "hook": 9,
-    "curiosity": 9,
-    "fit_3d": 10,
-    "shareability": 9
-   },
-   "why": "Sparks intense comment debates between experienced drivers and tech fans using side-by-side skid and swerve physics.",
-   "total": 37
-  },
-  {
-   "topic": "Why India Banned Non-ABS Cars",
-   "angle": "The life-saving engineering and crash data that forced the mandatory ABS rule in India.",
-   "hook_line_en": "One single 2019 law slashed fatal highway lockup crashes across India by 30 percent.",
-   "scores": {
-    "hook": 8,
-    "curiosity": 8,
-    "fit_3d": 9,
-    "shareability": 9
-   },
-   "why": "Blends regulatory history with high-stakes physics using the fact-card timeline alongside dramatic crash-avoidance footage.",
-   "total": 34
-  },
-  {
-   "topic": "EBD: Stopping the Spin-Out",
-   "angle": "How weight transfer unweights rear tires during hard stops and why computers balance pressure to prevent spinning.",
-   "hook_line_en": "70 percent of your car's weight lunges forward in less than 300 milliseconds.",
-   "scores": {
-    "hook": 8,
     "curiosity": 8,
     "fit_3d": 9,
     "shareability": 8
    },
-   "why": "Explains invisible vehicle dynamics clearly using wheel speed sensor glow, hydraulic valves, and obstacle evasion.",
-   "total": 33
+   "why": "xray_cabin shows the pedal vibration directly, and the point about not lifting your foot is practical and easy to share.",
+   "total": 34
+  },
+  {
+   "topic": "Why Locked Wheels Can't Steer",
+   "angle": "A tyre only has a limited amount of grip. A sliding tyre uses all of it for braking, so none is left for steering. That is why the car goes straight even when the wheels are turned.",
+   "hook_line_en": "Turn the steering wheel all the way, and a locked-wheel car still goes straight.",
+   "scores": {
+    "hook": 8,
+    "curiosity": 8,
+    "fit_3d": 9,
+    "shareability": 7
+   },
+   "why": "brake_skid shows the front wheels turned while the car slides straight, which is a surprising visual that backs up the physics.",
+   "total": 32
+  },
+  {
+   "topic": "Wheel Speed Sensors: The Car's Hidden Reflexes",
+   "angle": "Each wheel has a sensor that reports its speed to the ECU hundreds of times a second. The ECU spots a locking wheel before the driver can feel it.",
+   "hook_line_en": "Your car notices a skid before you do, in a fraction of a second.",
+   "scores": {
+    "hook": 8,
+    "curiosity": 7,
+    "fit_3d": 10,
+    "shareability": 6
+   },
+   "why": "xray_orbit was built to show sensors and wires glowing to the ECU, so the explanation matches the visuals.",
+   "total": 31
+  },
+  {
+   "topic": "How ABS Became Mandatory: A Short History",
+   "angle": "ABS began in aircraft and was later fitted to cars. Laws then made it standard, and fact cards show the years and the number of lives saved. India's two-wheeler ABS rules can be the payoff.",
+   "hook_line_en": "A safety feature that began on aeroplanes is now the law on Indian roads.",
+   "scores": {
+    "hook": 7,
+    "curiosity": 7,
+    "fit_3d": 8,
+    "shareability": 7
+   },
+   "why": "Year and number cards in fact_card carry the history, and the final real-life payoff and comment question suit the CTA. The exact years and figures need checking before the script is written.",
+   "total": 29
   }
  ],
  "date": "2026-11-22",
