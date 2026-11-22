@@ -70,17 +70,17 @@
  ],
  "date": "2026-11-22",
  "idea": {
-  "topic": "How ABS Actually Works",
-  "angle": "Why stamping the pedal saves your life while pumping the brakes destroys ABS efficiency.",
-  "hook_line_en": "15 times in a single second — that is how fast your car fights death for you.",
+  "topic": "ABS: Why You Can Steer While Slamming Brakes",
+  "angle": "ABS releases and re-applies brake pressure about 15 times a second, so the wheels never lock and the car keeps steering around the obstacle. Without ABS, the car slides straight into the barrier.",
+  "hook_line_en": "Your car's brakes switch on and off 15 times every second.",
   "scores": {
    "hook": 9,
    "curiosity": 9,
    "fit_3d": 10,
-   "shareability": 9
+   "shareability": 8
   },
-  "why": "Directly leverages the brake skid versus swerve visuals and hydraulic pulsing x-rays to bust a common driving myth.",
-  "total": 37
+  "why": "It fits the engine's scenes exactly (brake_skid vs brake_swerve, then xray_orbit, xray_brakes and xray_cabin) and it has a surprising number up front.",
+  "total": 36
  },
  "script": {
   "topic": "How ABS Actually Works - Why Stamping Beats Pumping",
