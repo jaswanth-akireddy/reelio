@@ -2,7 +2,7 @@ name: reelio
 
 on:
   schedule:
-    - cron: "*/30 2-18 * * *"   # every 30 min, 7:30 am – 12:00 midnight IST
+    - cron: "7,37 2-18 * * *"   # twice an hour (:07 and :37 UTC = :37 and :07 IST), 7:30 am – midnight IST
   workflow_dispatch: {}
 
 concurrency:
