@@ -30,7 +30,7 @@ voice:
   speed: 1.05
 
 video:
-  target_seconds: 55                # aim; the voice decides the final length
+  target_seconds: 45                # research: 40-50 s holds best for explainers; the voice decides the final length
   music_volume: 0.16                # background music level under the voice
   render_workers: 4
 

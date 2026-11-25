@@ -29,7 +29,12 @@ def save(s):
 
 
 def script_message(sc):
-    lines = [f"📝 SCRIPT: {sc['topic']}", f"Hook score: {sc.get('hook_score', '?')}/10", ""]
+    card = sc.get("scorecard") or {}
+    words = sum(len(b["words"]) for b in sc["beats"])
+    lines = [f"📝 SCRIPT: {sc['topic']}", f"Hook score: {sc.get('hook_score', '?')}/10 · {len(sc['beats'])} beats · {words} words (~{round(words / 2.4)} s)"]
+    if card:
+        lines.append("Self-review: " + " · ".join(f"{k} {v}" for k, v in card.items()))
+    lines.append("")
     for i, b in enumerate(sc["beats"], 1):
         te = " ".join(w[0] for w in b["words"])
         ro = " ".join(w[1] for w in b["words"])
@@ -61,9 +66,29 @@ def start_ideas(cfg, s):
     s.update(stage="await_pick", ideas=ideas, date=dt.datetime.now(IST).date().isoformat())
 
 
+def hook_lab_message(plan):
+    lines = ["🧪 HOOK LAB: 8 openings tested (stop / clarity / curiosity / truth)", ""]
+    ranked = sorted(enumerate(plan.get("hooks", [])), key=lambda x: -sum(x[1].get("scores", {}).values()))
+    for i, h in ranked[:4]:
+        sc = h.get("scores", {})
+        star = "⭐ " if i == plan.get("chosen") else ""
+        lines += [f"{star}{h.get('line_tenglish', '')}", f"   ({h.get('type')}) {h.get('line_en', '')}",
+                  f"   {sc.get('stop')}/{sc.get('clarity')}/{sc.get('curiosity')}/{sc.get('truth')}", ""]
+    lines += [f"Promise: {plan.get('promise', '')}", f"Aha: {plan.get('aha', '')}", "", "Writing the full script with this hook…"]
+    return "\n".join(lines)
+
+
 def write_script(cfg, s, feedback=None):
-    telegram.send("✍️ Writing the script (checking facts too)…" if not feedback else "✍️ Revising…")
-    sc = ask_llm(cfg, prompts.script_prompt(cfg, s["idea"], feedback, s.get("script") if feedback else None), search=True)
+    if feedback and s.get("script"):
+        telegram.send("✍️ Revising…")
+        sc = ask_llm(cfg, prompts.script_prompt(cfg, s["idea"], feedback=feedback, previous=s["script"]), search=True)
+    else:
+        telegram.send("🔬 Researching the topic and testing hooks…")
+        plan = ask_llm(cfg, prompts.hook_lab_prompt(cfg, s["idea"]), search=True)
+        s["plan"] = plan
+        telegram.send(hook_lab_message(plan))
+        sc = ask_llm(cfg, prompts.script_prompt(cfg, s["idea"], plan=plan), search=True)
+        sc.setdefault("facts", plan.get("facts", []))
     s.update(stage="await_script", script=sc)
     telegram.send(script_message(sc))
 
@@ -147,6 +172,8 @@ def main():
                 start_ideas(cfg, s)
             elif s["stage"] == "await_pick" and low.isdigit() and 1 <= int(low) <= len(s["ideas"]):
                 s["idea"] = s["ideas"][int(low) - 1]
+                s.pop("script", None)
+                s.pop("plan", None)
                 write_script(cfg, s)
             elif s["stage"] == "await_script":
                 if low in ("ok", "okay", "approve", "yes"):
