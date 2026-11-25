@@ -1,74 +1,74 @@
 {
- "stage": "await_publish",
- "tg_offset": 437498531,
+ "stage": "await_pick",
+ "tg_offset": 437498532,
  "ideas": [
   {
-   "topic": "ABS: Why You Can Steer While Slamming Brakes",
-   "angle": "ABS releases and re-applies brake pressure about 15 times a second, so the wheels never lock and the car keeps steering around the obstacle. Without ABS, the car slides straight into the barrier.",
-   "hook_line_en": "Your car's brakes switch on and off 15 times every second.",
-   "scores": {
-    "hook": 9,
-    "curiosity": 9,
-    "fit_3d": 10,
-    "shareability": 8
-   },
-   "why": "It fits the engine's scenes exactly (brake_skid vs brake_swerve, then xray_orbit, xray_brakes and xray_cabin) and it has a surprising number up front.",
-   "total": 36
-  },
-  {
-   "topic": "Why Slamming the Brake Pedal Makes It Vibrate",
-   "angle": "The pedal shudder that scares many drivers is the ABS pump working. It means the system is saving you, so don't lift your foot.",
-   "hook_line_en": "When your brake pedal shakes in an emergency, most drivers do the one thing that can kill them.",
-   "scores": {
-    "hook": 9,
-    "curiosity": 8,
-    "fit_3d": 9,
-    "shareability": 8
-   },
-   "why": "xray_cabin shows the pedal vibration directly, and the point about not lifting your foot is practical and easy to share.",
-   "total": 34
-  },
-  {
-   "topic": "Why Locked Wheels Can't Steer",
-   "angle": "A tyre only has a limited amount of grip. A sliding tyre uses all of it for braking, so none is left for steering. That is why the car goes straight even when the wheels are turned.",
-   "hook_line_en": "Turn the steering wheel all the way, and a locked-wheel car still goes straight.",
+   "topic": "Brake pumping myth with ABS",
+   "angle": "Old advice to pump the brake makes an ABS car worse. ABS already pumps about 15 times a second, so you should press hard and hold. Verify the exact pulse rate against a manufacturer source before scripting.",
+   "hook_line_en": "Who told you to pump the brake? In an ABS car, that's wrong.",
    "scores": {
     "hook": 8,
     "curiosity": 8,
     "fit_3d": 9,
-    "shareability": 7
+    "shareability": 8
    },
-   "why": "brake_skid shows the front wheels turned while the car slides straight, which is a surprising visual that backs up the physics.",
+   "why": "Almost every Telugu driver was taught to pump the brakes by an uncle or a driving school, and this tells them that habit can hurt them.",
+   "total": 33
+  },
+  {
+   "topic": "Brake fade on ghat roads",
+   "angle": "Riding the brake downhill on Tirumala or Araku ghat roads overheats the brakes until the pedal stops working. Engine braking in a low gear prevents it.",
+   "hook_line_en": "Ghat road lo brake ni ila vadithe, brake pani cheyyadu.",
+   "scores": {
+    "hook": 8,
+    "curiosity": 8,
+    "fit_3d": 7,
+    "shareability": 9
+   },
+   "why": "Families drive Tirumala ghat roads all the time, so a real risk plus a simple fix gets forwarded to the family group.",
    "total": 32
   },
   {
-   "topic": "Wheel Speed Sensors: The Car's Hidden Reflexes",
-   "angle": "Each wheel has a sensor that reports its speed to the ECU hundreds of times a second. The ECU spots a locking wheel before the driver can feel it.",
-   "hook_line_en": "Your car notices a skid before you do, in a fraction of a second.",
+   "topic": "Stopping distance and speed",
+   "angle": "Doubling your speed from 50 to 100 km/h makes the braking distance about 4x, not 2x. Show it with a wet NH-65 stretch.",
+   "hook_line_en": "At 100 km/h, your car needs four times the distance it needs at 50.",
    "scores": {
     "hook": 8,
     "curiosity": 7,
-    "fit_3d": 10,
-    "shareability": 6
+    "fit_3d": 8,
+    "shareability": 8
    },
-   "why": "xray_orbit was built to show sensors and wires glowing to the ECU, so the explanation matches the visuals.",
+   "why": "Most people assume the distance only doubles, and the real figure feels shocking and personal on highways.",
    "total": 31
   },
   {
-   "topic": "How ABS Became Mandatory: A Short History",
-   "angle": "ABS began in aircraft and was later fitted to cars. Laws then made it standard, and fact cards show the years and the number of lives saved. India's two-wheeler ABS rules can be the payoff.",
-   "hook_line_en": "A safety feature that began on aeroplanes is now the law on Indian roads.",
+   "topic": "ESC and skid control",
+   "angle": "ESC brakes individual wheels to stop a slide that the driver cannot correct. Show brake_skid against brake_swerve and ask why the steering stopped working.",
+   "hook_line_en": "Steering tippinaa car tiragaledu. Enduku?",
    "scores": {
     "hook": 7,
-    "curiosity": 7,
-    "fit_3d": 8,
+    "curiosity": 8,
+    "fit_3d": 9,
     "shareability": 7
    },
-   "why": "Year and number cards in fact_card carry the history, and the final real-life payoff and comment question suit the CTA. The exact years and figures need checking before the script is written.",
-   "total": 29
+   "why": "The skid footage grabs attention on mute, and the question of why steering fails is one most viewers can't answer in their head.",
+   "total": 31
+  },
+  {
+   "topic": "Old brake fluid",
+   "angle": "Brake fluid absorbs moisture from the air, which lowers its boiling point, so old fluid can fail in hard braking. Manufacturers usually say to change it every 2-3 years. Verify the interval and boiling-point figures before scripting.",
+   "hook_line_en": "Your brake fluid drinks water from the air, and that can kill your brakes.",
+   "scores": {
+    "hook": 8,
+    "curiosity": 8,
+    "fit_3d": 7,
+    "shareability": 7
+   },
+   "why": "Few owners know brake fluid ever needs changing, and the idea of water inside the brake line stops the scroll.",
+   "total": 30
   }
  ],
- "date": "2026-11-22",
+ "date": "2026-11-25",
  "idea": {
   "topic": "ABS: Why You Can Steer While Slamming Brakes",
   "angle": "ABS releases and re-applies brake pressure about 15 times a second, so the wheels never lock and the car keeps steering around the obstacle. Without ABS, the car slides straight into the barrier.",
