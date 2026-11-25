@@ -1,5 +1,5 @@
 {
- "stage": "await_pick",
+ "stage": "await_script",
  "tg_offset": 437498532,
  "ideas": [
   {
@@ -70,44 +70,302 @@
  ],
  "date": "2026-11-25",
  "idea": {
-  "topic": "ABS: Why You Can Steer While Slamming Brakes",
-  "angle": "ABS releases and re-applies brake pressure about 15 times a second, so the wheels never lock and the car keeps steering around the obstacle. Without ABS, the car slides straight into the barrier.",
-  "hook_line_en": "Your car's brakes switch on and off 15 times every second.",
+  "topic": "Brake pumping myth with ABS",
+  "angle": "Old advice to pump the brake makes an ABS car worse. ABS already pumps about 15 times a second, so you should press hard and hold. Verify the exact pulse rate against a manufacturer source before scripting.",
+  "hook_line_en": "Who told you to pump the brake? In an ABS car, that's wrong.",
   "scores": {
-   "hook": 9,
-   "curiosity": 9,
-   "fit_3d": 10,
+   "hook": 8,
+   "curiosity": 8,
+   "fit_3d": 9,
    "shareability": 8
   },
-  "why": "It fits the engine's scenes exactly (brake_skid vs brake_swerve, then xray_orbit, xray_brakes and xray_cabin) and it has a surprising number up front.",
-  "total": 36
+  "why": "Almost every Telugu driver was taught to pump the brakes by an uncle or a driving school, and this tells them that habit can hurt them.",
+  "total": 33
  },
- "script": {
-  "topic": "ABS: why you can steer while slamming the brakes",
-  "youtube_title": "Brake kottina steering ela thirugutundi? 🤯 ABS secret #Shorts",
-  "description": "ABS brake pressure ni sekanuku daadaapu 15 saarlu vidudala chesi malli istundi. Anduke wheels lock avvavu, steering panichestundi.\nABS lekapothe kaaru sootigaa barrier ki guddutundi!\n#ABS #CarsTelugu #TeluguAutoFacts #Shorts",
-  "hook_score": 8,
-  "predicted_retention_risks": [
-   "Beats 6-7 (sensor and ECU) are technical, so viewers may swipe. The x-ray visuals and the short sentences are meant to hold them.",
-   "The 'WHY?' beat comes right after a question. If the question beat runs long, viewers may leave before the skid footage.",
-   "The fact_card is late (about 45s). The swerve payoff before it has to hold attention until then."
-  ],
+ "release": "video-45026544339",
+ "plan": {
   "facts": [
    {
-    "claim": "ABS stops wheels locking by cutting brake pressure when a wheel is about to lock, so the driver can keep steering. A sensor reads each wheel's speed.",
-    "source": "https://www.thedrive.com/cars-101/39846/what-is-abs"
+    "claim": "Manufacturer pulse rates differ. Bosch says its ABS can reduce and rebuild brake pressure up to 40 times a second when a wheel is about to lock. A BMW ABS training document gives 2 to 15 pulses per second. HowStuffWorks says some systems cycle up to 15 times a second. So '15 a second' is a typical upper figure, not an exact universal one. The script says 'up to 15, some systems even more', not 'exactly 15'. I could not open the Bosch page directly, so the 40 figure comes from the search snippet. Re-check it before publishing.",
+    "source": "https://bosch-mobility.com/en/solutions/driving-safety/antilock-braking-system/"
    },
    {
-    "claim": "In a hard stop a valve reduces pressure and a pump restores it, in a repeating cycle. One source (HowStuffWorks) gives the rate as up to about 15 times a second, depending on the system. The script says 'daadaapu 15' (about 15) and the title says 'up to'.",
+    "claim": "BMW technical training document on ABS fundamentals: the pulsing rate is 2-15 times per second.",
+    "source": "https://archive.org/download/BMWTechnicalTrainingDocuments/ST056%20Chassis%20Dynamics%20%28Archive%201%29/02%2520ABS%2520Fundamentals%25201-20-03.pdf"
+   },
+   {
+    "claim": "Some ABS systems can cycle up to 15 times per second.",
     "source": "https://science.howstuffworks.com/anti-lock-brake.htm"
    },
    {
-    "claim": "The driver feels the pulsing as pedal vibration. They should press firmly, keep steering, and not pump the pedal.",
-    "source": "https://www.mazdausa.com/resource-center/what-is-abs"
+    "claim": "Honda owner's manual: never pump the brake pedal. The pedal may pulsate slightly when ABS is working.",
+    "source": "https://www.honda.ca/Content/ownermanuals/htmlPublication/a7354496a48d4610286a7a2f261086de020a____/20180926/GUID-B610DADA-3A66-4AF0-A725-B34217550F94.html"
    },
    {
-    "claim": "The 1978 Mercedes-Benz S-Class (W116), developed with Bosch, was the first production car offered with electronic ABS. Some sources note earlier systems such as Chrysler's Sure Brake in 1971, so the script says 'modatisaari' (first time) only for this Mercedes electronic system, not 'first ever'.",
-    "source": "https://www.automotiveworld.com/news/world-premiere-in-1978-in-the-mercedes-benz-s-class-anti-lock-braking-system-40-years-old/"
+    "claim": "Nissan Juke 2024 owner's manual: apply firm, steady pressure and do not pump the brakes. Pumping may increase stopping distance.",
+    "source": "https://www.nissan.ie/ownership/car-owner-manual/manuals/iom/juke/0f16/e1/2024/using-system-1.shtml"
+   },
+   {
+    "claim": "Mazda CX-3 owner's manual: slight pedal vibration and chattering noise are normal. Keep the pedal pressed without pumping.",
+    "source": "https://owners-manual.mazda.com/gen/en/2016/cx-3_en/contents/05060100.html"
+   },
+   {
+    "claim": "Lexus RX300 manual: hold the brake pedal down firmly and do not pump it.",
+    "source": "https://www.manualslib.com/manual/1724886/Lexus-Rx300.html?page=198"
+   },
+   {
+    "claim": "Mechanism: wheel speed sensors feed the ECU. When a wheel is about to lock, the hydraulic unit's valves hold, release and reapply pressure faster than a driver can.",
+    "source": "https://science.howstuffworks.com/anti-lock-brake.htm"
+   }
+  ],
+  "hooks": [
+   {
+    "type": "shocking number",
+    "line_en": "Your car pumps the brake up to 15 times a second.",
+    "line_tenglish": "Mee car brake ni second ki 15 saarlu varaku pump chestundi.",
+    "opening_scene": "wheel_closeup",
+    "scores": {
+     "stop": 8,
+     "clarity": 8,
+     "curiosity": 8,
+     "truth": 8
+    }
+   },
+   {
+    "type": "myth bust",
+    "line_en": "Who told you to pump the brake? In an ABS car, that's wrong.",
+    "line_tenglish": "Brake pump cheyyamani evaru cheppaaru? ABS car lo adi tappu.",
+    "opening_scene": "brake_skid",
+    "scores": {
+     "stop": 8,
+     "clarity": 8,
+     "curiosity": 7,
+     "truth": 9
+    }
+   },
+   {
+    "type": "danger",
+    "line_en": "This old brake habit can lengthen your stopping distance.",
+    "line_tenglish": "Ee pata brake habit mee stopping distance ni pedda chestundi.",
+    "opening_scene": "brake_skid",
+    "scores": {
+     "stop": 7,
+     "clarity": 6,
+     "curiosity": 6,
+     "truth": 8
+    }
+   },
+   {
+    "type": "curiosity gap",
+    "line_en": "A computer in your car brakes faster than your foot ever could.",
+    "line_tenglish": "Mee car lo computer, mee kaalu kanna fast ga brake veestundi.",
+    "opening_scene": "xray_orbit",
+    "scores": {
+     "stop": 6,
+     "clarity": 5,
+     "curiosity": 8,
+     "truth": 9
+    }
+   },
+   {
+    "type": "visual shock",
+    "line_en": "The wheels are turned, but the car still slides straight. Why?",
+    "line_tenglish": "Steering tippinaa car tiragaledu. Enduku?",
+    "opening_scene": "brake_skid",
+    "scores": {
+     "stop": 8,
+     "clarity": 7,
+     "curiosity": 8,
+     "truth": 9
+    }
+   },
+   {
+    "type": "direct question",
+    "line_en": "Do you pump the brake in an emergency?",
+    "line_tenglish": "Emergency lo brake pump chestara?",
+    "opening_scene": "wheel_closeup",
+    "scores": {
+     "stop": 5,
+     "clarity": 6,
+     "curiosity": 4,
+     "truth": 9
+    }
+   },
+   {
+    "type": "shocking number",
+    "line_en": "Pump the brake twice, and ABS has already pumped it 30 times.",
+    "line_tenglish": "Meeru rendu saarlu pump cheste, ABS appatike 30 saarlu chesindi.",
+    "opening_scene": "xray_cabin",
+    "scores": {
+     "stop": 7,
+     "clarity": 5,
+     "curiosity": 7,
+     "truth": 5
+    }
+   },
+   {
+    "type": "myth bust",
+    "line_en": "Your driving school taught you wrong. Don't pump. Press and hold.",
+    "line_tenglish": "Pump cheyyadam tappu. Pedal ni gattiga nokki pattandi.",
+    "opening_scene": "wheel_closeup",
+    "scores": {
+     "stop": 7,
+     "clarity": 9,
+     "curiosity": 6,
+     "truth": 9
+    }
+   }
+  ],
+  "chosen": 0,
+  "promise": "You'll know why you should never pump the brake in an ABS car: the car already pumps it up to 15 times a second. Press hard, hold, and steer.",
+  "aha": "Pumping with your foot fights ABS. The car already does it much faster, so your job is to press hard, hold, and steer.",
+  "takeaway": "In an emergency in an ABS car, press the brake pedal hard and hold it. Feel the pulsing, don't lift off, and steer around the obstacle.",
+  "outline": [
+   {
+    "job": "hook",
+    "idea": "Your car pumps the brake up to 15 times a second (title: {#15}× PER SECOND).",
+    "scene": "wheel_closeup",
+    "visual": "Glowing caliper close-up with the counting number title; camera pulls back to the car"
+   },
+   {
+    "job": "stakes",
+    "idea": "So the old 'pump the brake' advice is out of date for modern cars.",
+    "scene": "wheel_closeup",
+    "visual": "Title OLD ADVICE with a red label on the pedal"
+   },
+   {
+    "job": "stakes",
+    "idea": "On NH-65 in the monsoon, a panic stop is where this matters most. Wet roads lock wheels easily.",
+    "scene": "brake_skid",
+    "visual": "Wheels lock, skid marks, red skid label"
+   },
+   {
+    "job": "payoff",
+    "idea": "Without ABS, a locked wheel stops steering, and the car slides straight at the barrier.",
+    "scene": "brake_skid",
+    "visual": "Front wheels turned, car sliding into the barrier, red barrier label"
+   },
+   {
+    "job": "payoff",
+    "idea": "This is why old drivers learned to pump: they were trying to unlock the wheels by hand.",
+    "scene": "brake_skid",
+    "visual": "Title MANUAL PUMPING"
+   },
+   {
+    "job": "rehook",
+    "idea": "But what does ABS do instead?",
+    "scene": "xray_orbit",
+    "visual": "X-ray blueprint of the car, big title WHY?"
+   },
+   {
+    "job": "payoff",
+    "idea": "A sensor on each wheel tracks wheel speed all the time.",
+    "scene": "xray_orbit",
+    "visual": "Green sensor and tone_ring labels glow"
+   },
+   {
+    "job": "payoff",
+    "idea": "Sensor wires send the signal to the ECU. It spots a wheel about to lock.",
+    "scene": "xray_orbit",
+    "visual": "ECU label pulses; signal runs along the wires"
+   },
+   {
+    "job": "payoff",
+    "idea": "The ECU tells the valves to release and reapply pressure.",
+    "scene": "xray_brakes",
+    "visual": "Valve and pump labels; brake pressure pulses in the line"
+   },
+   {
+    "job": "rehook",
+    "idea": "The speed is the twist. Bosch says up to 40 times a second, BMW 2-15. Your foot manages maybe 3-4 pumps.",
+    "scene": "fact_card",
+    "visual": "Cards: UP TO {#40}/SEC (Bosch), UP TO {#15}/SEC (BMW/HowStuffWorks), then YOUR FOOT: ~3"
+   },
+   {
+    "job": "payoff",
+    "idea": "Pump it yourself and you interrupt the computer, so the stop gets longer.",
+    "scene": "xray_cabin",
+    "visual": "Pedal moves up and down, red pedal label, title YOU VS ABS"
+   },
+   {
+    "job": "payoff",
+    "idea": "When ABS acts, the pedal vibrates and you may hear chattering. That's normal.",
+    "scene": "xray_cabin",
+    "visual": "Pedal vibrating, green pedal label, title NORMAL BUZZ"
+   },
+   {
+    "job": "rehook",
+    "idea": "Don't lift your foot when it buzzes.",
+    "scene": "xray_cabin",
+    "visual": "Red warning on the pedal, title DON'T LIFT"
+   },
+   {
+    "job": "punchline",
+    "idea": "Aha: the computer already pumps far faster than your foot, so your job is to press hard and hold.",
+    "scene": "brake_swerve",
+    "visual": "Car brakes hard and swerves around the barrier into the other lane, green skid-free label"
+   },
+   {
+    "job": "takeaway",
+    "idea": "Press hard, hold it, and steer away from the danger.",
+    "scene": "brake_swerve",
+    "visual": "Title PRESS HOLD STEER, pedal and wheel_front labels"
+   },
+   {
+    "job": "takeaway",
+    "idea": "Swift, Creta, Thar: any modern car works this way, and Honda, Nissan and Mazda manuals say the same.",
+    "scene": "hero_cta",
+    "visual": "Hero shot of the car; manual quote card"
+   },
+   {
+    "job": "cta",
+    "idea": "Comment question that loops into the hook: Have you ever pumped the brake? Because your car already pumps it up to 15 times a second.",
+    "scene": "hero_cta",
+    "visual": "COMMENT button, then follow end card"
+   }
+  ]
+ },
+ "script": {
+  "topic": "Brake pumping myth with ABS",
+  "youtube_title": "Brake pump cheyyakandi! ABS 15 saarlu kodutundi #Shorts",
+  "description": "ABS car lo brake pump cheste computer ki adda paduthaaru. Gattiga nokki pattandi, steering tippandi.\nPulse rate systemni batti maaruthundi: BMW training doc 2-15 per second, HowStuffWorks up to 15.\n#ABS #BrakeTips #TeluguCars #CarMyths #RoadSafety #Shorts",
+  "hook_score": 8,
+  "scorecard": {
+   "hook": 8,
+   "stakes": 8,
+   "rehooks": 8,
+   "payoff": 8,
+   "specificity": 8,
+   "loop": 9
+  },
+  "predicted_retention_risks": [
+   "Beats 8-10 (sensor, ECU, valves) are a technical chain. The twist at beat 11 has to arrive fast, and the X-ray visuals have to change every beat.",
+   "The fact_card beats (11-12) are number-heavy. The line 'Mee kaalu antha fast ga pump cheyyaledu' is a soft claim, so it is less punchy than a hard figure."
+  ],
+  "facts": [
+   {
+    "claim": "BMW ABS training document: the ABS pulsing rate is 2-15 times per second.",
+    "source": "https://archive.org/download/BMWTechnicalTrainingDocuments/ST056%20Chassis%20Dynamics%20%28Archive%201%29/02%2520ABS%2520Fundamentals%25201-20-03.pdf"
+   },
+   {
+    "claim": "Some ABS systems can cycle up to 15 times per second. Wheel speed sensors feed the ECU, and the valves hold, release and reapply pressure faster than a driver can.",
+    "source": "https://science.howstuffworks.com/anti-lock-brake.htm"
+   },
+   {
+    "claim": "Honda owner's manual: never pump the brake pedal. The pedal may pulsate slightly when ABS is working.",
+    "source": "https://www.honda.ca/Content/ownermanuals/htmlPublication/a7354496a48d4610286a7a2f261086de020a____/20180926/GUID-B610DADA-3A66-4AF0-A725-B34217550F94.html"
+   },
+   {
+    "claim": "Nissan Juke 2024 manual: apply firm, steady pressure and do not pump the brakes. Pumping may increase stopping distance.",
+    "source": "https://www.nissan.ie/ownership/car-owner-manual/manuals/iom/juke/0f16/e1/2024/using-system-1.shtml"
+   },
+   {
+    "claim": "Mazda CX-3 manual: slight pedal vibration and chattering noise are normal. Keep the pedal pressed without pumping.",
+    "source": "https://owners-manual.mazda.com/gen/en/2016/cx-3_en/contents/05060100.html"
+   },
+   {
+    "claim": "Bosch's '40 times a second' figure is DROPPED from the script. It came only from a search snippet and I could not open the page to confirm it. The script uses the 'up to 15' figure, which two sources support. The '3-4 pumps by foot' estimate is also dropped, because it has no source.",
+    "source": "https://bosch-mobility.com/en/solutions/driving-safety/antilock-braking-system/"
    }
   ],
   "beats": [
@@ -115,8 +373,28 @@
     "scene": "wheel_closeup",
     "words": [
      [
-      "సెకనుకు",
-      "Sekanuku"
+      "మీ",
+      "Mee"
+     ],
+     [
+      "car",
+      "car"
+     ],
+     [
+      "brake",
+      "brake"
+     ],
+     [
+      "ని",
+      "ni"
+     ],
+     [
+      "second",
+      "second"
+     ],
+     [
+      "కి",
+      "ki"
      ],
      [
       "15",
@@ -127,20 +405,8 @@
       "saarlu"
      ],
      [
-      "ఇదే",
-      "Idhe"
-     ],
-     [
-      "ABS",
-      "ABS"
-     ],
-     [
-      "బ్రేక్",
-      "brake"
-     ],
-     [
-      "మ్యాజిక్",
-      "magic"
+      "కొడుతుంది",
+      "kodutundi"
      ]
     ],
     "title": {
@@ -153,156 +419,118 @@
      "kind": "",
      "target": "caliper"
     },
-    "retention": "Opens on a surprising number with no greeting, over a glowing caliper."
+    "retention": "Hook: a shocking number on the most striking frame. It works on mute."
    },
    {
     "scene": "wheel_closeup",
     "words": [
      [
-      "మీకు",
-      "Meeku"
+      "brake",
+      "Brake"
      ],
      [
-      "తెలుసా",
-      "thelusaa"
+      "pump",
+      "pump"
      ],
      [
-      "బ్రేక్",
-      "brake"
+      "చెయ్యి",
+      "cheyyi"
      ],
      [
-      "గట్టిగా",
-      "gattigaa"
+      "అని",
+      "ani"
      ],
      [
-      "వేసినా",
-      "vesinaa"
+      "చెప్పారు",
+      "chepparu"
      ],
      [
-      "స్టీరింగ్",
-      "steering"
-     ],
-     [
-      "ఎలా",
-      "ela"
-     ],
-     [
-      "తిరుగుతుంది",
-      "thirugutundi"
+      "కదా",
+      "kada"
      ]
     ],
     "title": {
-     "text": "STEER {WHILE} BRAKING?",
+     "text": "OLD {ADVICE}",
      "sub": "",
-     "style": ""
-    },
-    "retention": "'Meeku thelusaa?' question that states the paradox."
-   },
-   {
-    "scene": "wheel_closeup",
-    "words": [
-     [
-      "అసలు",
-      "Asalu"
-     ],
-     [
-      "ఇది",
-      "idi"
-     ],
-     [
-      "ఎలా",
-      "ela"
-     ],
-     [
-      "సాధ్యం",
-      "saadhyam"
-     ]
-    ],
-    "title": {
-     "text": "HOW?",
-     "sub": "",
-     "style": "big"
-    },
-    "retention": "Full-screen HOW? open loop that only the later beats answer."
-   },
-   {
-    "scene": "brake_skid",
-    "words": [
-     [
-      "ABS",
-      "ABS"
-     ],
-     [
-      "లేకపోతే",
-      "lekapothe"
-     ],
-     [
-      "బ్రేక్",
-      "brake"
-     ],
-     [
-      "కొట్టగానే",
-      "kottagaane"
-     ],
-     [
-      "వీల్స్",
-      "wheels"
-     ],
-     [
-      "లాక్",
-      "lock"
-     ],
-     [
-      "అవుతాయి",
-      "avutaayi"
-     ]
-    ],
-    "title": {
-     "text": "WHEELS {LOCK}",
-     "sub": "no ABS",
      "style": ""
     },
     "label": {
-     "text": "SKID MARKS",
+     "text": "DON'T PUMP",
      "kind": "red",
-     "target": "skid"
+     "target": "pedal"
     },
-    "retention": "Problem shown with a visual change to skid footage."
+    "retention": "Stakes: challenges a belief the viewer already holds."
    },
    {
     "scene": "brake_skid",
     "words": [
      [
-      "స్టీరింగ్",
-      "Steering"
+      "Monsoon",
+      "Monsoon"
      ],
      [
-      "తిప్పినా",
-      "thippinaa"
+      "లో",
+      "lo"
      ],
      [
-      "కారు",
-      "kaaru"
+      "NH-65",
+      "NH-65"
      ],
      [
-      "సూటిగా",
-      "sootigaa"
+      "మీద",
+      "meeda"
      ],
      [
-      "వెళ్లి",
-      "velli"
+      "panic",
+      "panic"
      ],
      [
-      "బ్యారియర్‌ని",
-      "barrier ni"
-     ],
-     [
-      "గుద్దుతుంది",
-      "guddutundi"
+      "brake",
+      "brake"
      ]
     ],
     "title": {
-     "text": "STRAIGHT INTO {BARRIER}",
+     "text": "WET {ROAD}",
+     "sub": "NH-65",
+     "style": ""
+    },
+    "label": {
+     "text": "SKID",
+     "kind": "red",
+     "target": "skid"
+    },
+    "retention": "Stakes: a real Indian road and a danger the viewer can picture."
+   },
+   {
+    "scene": "brake_skid",
+    "words": [
+     [
+      "Wheel",
+      "Wheel"
+     ],
+     [
+      "lock",
+      "lock"
+     ],
+     [
+      "అయితే",
+      "aithe"
+     ],
+     [
+      "steering",
+      "steering"
+     ],
+     [
+      "పని",
+      "pani"
+     ],
+     [
+      "చేయదు",
+      "cheyyadu"
+     ]
+    ],
+    "title": {
+     "text": "LOCKED {WHEEL}",
      "sub": "",
      "style": ""
     },
@@ -311,7 +539,96 @@
      "kind": "red",
      "target": "barrier"
     },
-    "retention": "The stakes: the car crashes even with the wheel turned."
+    "retention": "Payoff: the problem without ABS."
+   },
+   {
+    "scene": "brake_skid",
+    "words": [
+     [
+      "car",
+      "Car"
+     ],
+     [
+      "సరిగ్గా",
+      "sidha"
+     ],
+     [
+      "barrier",
+      "barrier"
+     ],
+     [
+      "కి",
+      "ki"
+     ],
+     [
+      "వెళ్తుంది",
+      "velthundi"
+     ]
+    ],
+    "title": {
+     "text": "NO {STEERING}",
+     "sub": "",
+     "style": ""
+    },
+    "retention": "Payoff: peak drama. The car slides straight."
+   },
+   {
+    "scene": "brake_skid",
+    "words": [
+     [
+      "అందుకే",
+      "Anduke"
+     ],
+     [
+      "పాత",
+      "pata"
+     ],
+     [
+      "drivers",
+      "drivers"
+     ],
+     [
+      "pump",
+      "pump"
+     ],
+     [
+      "చేసేవాళ్ళు",
+      "chesevaallu"
+     ]
+    ],
+    "title": {
+     "text": "MANUAL {PUMPING}",
+     "sub": "",
+     "style": ""
+    },
+    "retention": "Payoff: explains where the myth came from."
+   },
+   {
+    "scene": "xray_orbit",
+    "words": [
+     [
+      "కానీ",
+      "Kaani"
+     ],
+     [
+      "ABS",
+      "ABS"
+     ],
+     [
+      "ఏం",
+      "em"
+     ],
+     [
+      "చేస్తుంది",
+      "chestundi"
+     ]
+    ],
+    "title": {
+     "text": "{WHY?}",
+     "sub": "",
+     "style": "big"
+    },
+    "retention": "Re-hook 1: a question the viewer can't answer in their head."
    },
    {
     "scene": "xray_orbit",
@@ -321,12 +638,12 @@
       "Prathi"
      ],
      [
-      "వీల్",
+      "wheel",
       "wheel"
      ],
      [
-      "దగ్గర",
-      "daggara"
+      "కి",
+      "ki"
      ],
      [
       "ఒక",
@@ -342,31 +659,31 @@
      ]
     ],
     "title": {
-     "text": "A {SENSOR} AT EVERY WHEEL",
+     "text": "WHEEL {SENSOR}",
      "sub": "",
      "style": ""
     },
     "label": {
-     "text": "WHEEL SENSOR",
+     "text": "SENSOR",
      "kind": "green",
      "target": "sensor"
     },
-    "retention": "New x-ray visual starts the solution, one idea per beat."
+    "retention": "Payoff: step 1 of the chain."
    },
    {
     "scene": "xray_orbit",
     "words": [
      [
-      "అది",
-      "Adi"
+      "Wheel",
+      "Wheel"
      ],
      [
-      "వీల్",
-      "wheel"
+      "lock",
+      "lock"
      ],
      [
-      "స్పీడ్‌ని",
-      "speed ni"
+      "అవబోతుంటే",
+      "avvabothunte"
      ],
      [
       "ECU",
@@ -377,16 +694,12 @@
       "ki"
      ],
      [
-      "చెప్తూ",
-      "cheptoo"
-     ],
-     [
-      "ఉంటుంది",
-      "untundi"
+      "చెప్తుంది",
+      "cheptundi"
      ]
     ],
     "title": {
-     "text": "SPEED GOES TO {ECU}",
+     "text": "THE {ECU}",
      "sub": "",
      "style": ""
     },
@@ -395,42 +708,34 @@
      "kind": "",
      "target": "ecu"
     },
-    "retention": "The glowing wires make the data flow easy to follow."
+    "retention": "Payoff: step 2, where the signal goes."
    },
    {
     "scene": "xray_brakes",
     "words": [
      [
-      "వీల్",
-      "Wheel"
+      "Valves",
+      "Valves"
      ],
      [
-      "లాక్",
-      "lock"
-     ],
-     [
-      "అవ్వబోతే",
-      "avvabothe"
-     ],
-     [
-      "వాల్వ్",
-      "valve"
-     ],
-     [
-      "బ్రేక్",
-      "brake"
-     ],
-     [
-      "ప్రెషర్",
+      "pressure",
       "pressure"
      ],
      [
-      "తగ్గిస్తుంది",
-      "thaggisthundi"
+      "వదిలేసి",
+      "vadilesi"
+     ],
+     [
+      "మళ్ళీ",
+      "malli"
+     ],
+     [
+      "పెంచుతాయి",
+      "penchutayi"
      ]
     ],
     "title": {
-     "text": "VALVE {RELEASES} PRESSURE",
+     "text": "RELEASE, {REAPPLY}",
      "sub": "",
      "style": ""
     },
@@ -439,105 +744,252 @@
      "kind": "",
      "target": "valve"
     },
-    "retention": "Cut to the hydraulic unit, a new visual about 20s in."
+    "retention": "Payoff: step 3. The pressure pulses are shown."
    },
    {
-    "scene": "xray_brakes",
+    "scene": "fact_card",
     "words": [
      [
-      "వెంటనే",
-      "Ventane"
+      "ఇదే",
+      "Idhe"
      ],
      [
-      "పంప్",
-      "pump"
+      "twist",
+      "twist"
      ],
      [
-      "మళ్లీ",
-      "malli"
+      "second",
+      "second"
      ],
      [
-      "ప్రెషర్",
-      "pressure"
-     ],
-     [
-      "ఇస్తుంది",
-      "istundi"
-     ]
-    ],
-    "title": {
-     "text": "PUMP {RE-APPLIES}",
-     "sub": "",
-     "style": ""
-    },
-    "label": {
-     "text": "PUMP",
-     "kind": "green",
-     "target": "pump"
-    },
-    "retention": "Short beat that completes the release and re-apply loop."
-   },
-   {
-    "scene": "xray_cabin",
-    "words": [
-     [
-      "ఇది",
-      "Idi"
-     ],
-     [
-      "సెకనుకు",
-      "sekanuku"
-     ],
-     [
-      "దాదాపు",
-      "daadaapu"
+      "కి",
+      "ki"
      ],
      [
       "15",
       "15"
      ],
      [
-      "సార్లు",
-      "saarlu"
-     ],
-     [
-      "జరుగుతుంది",
-      "jarugutundi"
+      "వరకు",
+      "varaku"
      ]
     ],
     "title": {
-     "text": "ABOUT {#15}× PER SECOND",
-     "sub": "release and re-apply",
+     "text": "UP TO {#15}/SEC",
+     "sub": "",
      "style": ""
     },
-    "retention": "The number comes back as a payoff and a re-hook, with the pedal vibrating."
+    "card": {
+     "big": "2-15",
+     "text": "pulses per second (BMW training doc)"
+    },
+    "retention": "Re-hook 2: the twist, with a number."
+   },
+   {
+    "scene": "fact_card",
+    "words": [
+     [
+      "మీ",
+      "Mee"
+     ],
+     [
+      "కాలు",
+      "kaalu"
+     ],
+     [
+      "అంత",
+      "antha"
+     ],
+     [
+      "fast",
+      "fast"
+     ],
+     [
+      "గా",
+      "ga"
+     ],
+     [
+      "pump",
+      "pump"
+     ],
+     [
+      "చేయలేదు",
+      "cheyyaledu"
+     ]
+    ],
+    "title": {
+     "text": "YOUR {FOOT}",
+     "sub": "",
+     "style": ""
+    },
+    "card": {
+     "big": "UP TO 15",
+     "text": "ABS pulses per second (HowStuffWorks)"
+    },
+    "retention": "Contrast: the foot is far slower than the computer."
    },
    {
     "scene": "xray_cabin",
     "words": [
      [
-      "అందుకే",
-      "Anduke"
+      "మీరు",
+      "Meeru"
      ],
      [
-      "పెడల్",
-      "pedal"
+      "pump",
+      "pump"
      ],
      [
-      "వైబ్రేట్",
+      "చేస్తే",
+      "cheste"
+     ],
+     [
+      "computer",
+      "computer"
+     ],
+     [
+      "ని",
+      "ni"
+     ],
+     [
+      "ఆపేస్తారు",
+      "aapestharu"
+     ]
+    ],
+    "title": {
+     "text": "YOU VS {ABS}",
+     "sub": "",
+     "style": ""
+    },
+    "label": {
+     "text": "PEDAL",
+     "kind": "red",
+     "target": "pedal"
+    },
+    "retention": "Payoff: pumping fights the system."
+   },
+   {
+    "scene": "xray_cabin",
+    "words": [
+     [
+      "Pump",
+      "Pump"
+     ],
+     [
+      "చేస్తే",
+      "cheste"
+     ],
+     [
+      "stopping",
+      "stopping"
+     ],
+     [
+      "distance",
+      "distance"
+     ],
+     [
+      "పెరగొచ్చు",
+      "peragochchu"
+     ]
+    ],
+    "title": {
+     "text": "LONGER {STOP}",
+     "sub": "Nissan manual",
+     "style": ""
+    },
+    "label": {
+     "text": "PEDAL",
+     "kind": "red",
+     "target": "pedal"
+    },
+    "retention": "Payoff: the stakes, backed by a manufacturer manual."
+   },
+   {
+    "scene": "xray_cabin",
+    "words": [
+     [
+      "Pedal",
+      "Pedal"
+     ],
+     [
+      "vibrate",
       "vibrate"
      ],
      [
-      "అవుతుంది",
-      "avutundi"
+      "అయితే",
+      "aithe"
      ],
      [
-      "భయపడకండి",
-      "bhayapadakandi"
+      "అది",
+      "adi"
+     ],
+     [
+      "normal",
+      "normal"
+     ]
+    ],
+    "title": {
+     "text": "NORMAL {BUZZ}",
+     "sub": "",
+     "style": ""
+    },
+    "label": {
+     "text": "PEDAL",
+     "kind": "green",
+     "target": "pedal"
+    },
+    "retention": "Payoff: removes the fear of the vibration."
+   },
+   {
+    "scene": "xray_cabin",
+    "words": [
+     [
+      "అప్పుడు",
+      "Appudu"
+     ],
+     [
+      "కాలు",
+      "kaalu"
+     ],
+     [
+      "తీయకండి",
+      "theeyakandi"
+     ]
+    ],
+    "title": {
+     "text": "DON'T {LIFT}",
+     "sub": "",
+     "style": ""
+    },
+    "label": {
+     "text": "PEDAL",
+     "kind": "red",
+     "target": "pedal"
+    },
+    "retention": "Re-hook 3: a sharp warning."
+   },
+   {
+    "scene": "brake_swerve",
+    "words": [
+     [
+      "computer",
+      "Computer"
+     ],
+     [
+      "pump",
+      "pump"
+     ],
+     [
+      "చేస్తుంది",
+      "chestundi"
+     ],
+     [
+      "మీరు",
+      "meeru"
      ],
      [
       "గట్టిగా",
-      "gattigaa"
+      "gattiga"
      ],
      [
       "నొక్కండి",
@@ -545,233 +997,119 @@
      ]
     ],
     "title": {
-     "text": "DON'T PUMP, {PRESS}",
+     "text": "LET ABS {WORK}",
      "sub": "",
      "style": ""
     },
     "label": {
-     "text": "BRAKE PEDAL",
+     "text": "NO SKID",
      "kind": "green",
-     "target": "pedal"
+     "target": "skid"
     },
-    "retention": "Real-life advice for the viewer."
+    "retention": "Punchline: the aha, with the swerve payoff visual."
    },
    {
     "scene": "brake_swerve",
     "words": [
      [
-      "వీల్స్",
-      "Wheels"
+      "నొక్కి",
+      "Nokki"
      ],
      [
-      "తిరుగుతూనే",
-      "thiruguthoone"
+      "పట్టండి",
+      "pattandi"
      ],
      [
-      "ఉంటాయి",
-      "untaayi"
-     ],
-     [
-      "కాబట్టి",
-      "kaabatti"
-     ],
-     [
-      "స్టీరింగ్",
+      "steering",
       "steering"
      ],
      [
-      "పనిచేస్తుంది",
-      "panichestundi"
+      "తిప్పండి",
+      "tippandi"
      ]
     ],
     "title": {
-     "text": "WHEELS KEEP {ROLLING}",
-     "sub": "steering works",
-     "style": ""
-    },
-    "retention": "The answer to the open loop, shown by the swerve footage."
-   },
-   {
-    "scene": "brake_swerve",
-    "words": [
-     [
-      "కారు",
-      "Kaaru"
-     ],
-     [
-      "బ్యారియర్",
-      "barrier"
-     ],
-     [
-      "చుట్టూ",
-      "chuttoo"
-     ],
-     [
-      "తిరిగి",
-      "thirigi"
-     ],
-     [
-      "సేఫ్‌గా",
-      "safe gaa"
-     ],
-     [
-      "తప్పించుకుంటుంది",
-      "thappinchukuntundi"
-     ]
-    ],
-    "title": {
-     "text": "SWERVES {SAFELY}",
+     "text": "PRESS HOLD {STEER}",
      "sub": "",
      "style": ""
     },
     "label": {
-     "text": "BARRIER",
+     "text": "WHEEL",
      "kind": "green",
-     "target": "barrier"
+     "target": "wheel_front"
     },
-    "retention": "A before-and-after contrast with the earlier crash."
-   },
-   {
-    "scene": "brake_swerve",
-    "words": [
-     [
-      "కాబట్టి",
-      "Kaabatti"
-     ],
-     [
-      "ప్రాణాలు",
-      "praanaalu"
-     ],
-     [
-      "కాపాడే",
-      "kaapaade"
-     ],
-     [
-      "technology",
-      "technology"
-     ],
-     [
-      "ఇది",
-      "idi"
-     ]
-    ],
-    "title": {
-     "text": "A {LIFE-SAVING} TECH",
-     "sub": "",
-     "style": ""
-    },
-    "retention": "Payoff: what it means for the viewer in real life."
-   },
-   {
-    "scene": "fact_card",
-    "words": [
-     [
-      "1978",
-      "1978"
-     ],
-     [
-      "లో",
-      "lo"
-     ],
-     [
-      "మెర్సిడెస్",
-      "Mercedes"
-     ],
-     [
-      "S-Class",
-      "S-Class"
-     ],
-     [
-      "లో",
-      "lo"
-     ],
-     [
-      "మొదటిసారి",
-      "modatisaari"
-     ],
-     [
-      "వచ్చింది",
-      "vachchindi"
-     ]
-    ],
-    "title": {
-     "text": "{1978} MERCEDES S-CLASS",
-     "sub": "electronic ABS",
-     "style": ""
-    },
-    "card": {
-     "big": "1978",
-     "text": "Mercedes S-Class got electronic ABS first"
-    },
-    "retention": "A year card that gives a concrete fact and a sense of history."
+    "retention": "Takeaway they can use tomorrow."
    },
    {
     "scene": "hero_cta",
     "words": [
+     [
+      "Swift",
+      "Swift"
+     ],
+     [
+      "Creta",
+      "Creta"
+     ],
+     [
+      "Thar",
+      "Thar"
+     ],
+     [
+      "అన్నీ",
+      "anni"
+     ],
+     [
+      "ఇలాగే",
+      "ilaage"
+     ]
+    ],
+    "title": {
+     "text": "ANY MODERN {CAR}",
+     "sub": "Honda, Nissan, Mazda agree",
+     "style": ""
+    },
+    "retention": "Specifics: cars people own, with manuals as proof."
+   },
+   {
+    "scene": "hero_cta",
+    "words": [
+     [
+      "మీరు",
+      "Meeru"
+     ],
+     [
+      "ఎప్పుడైనా",
+      "eppudaina"
+     ],
+     [
+      "pump",
+      "pump"
+     ],
+     [
+      "చేశారా",
+      "chesara"
+     ],
+     [
+      "ఎందుకంటే",
+      "endukante"
+     ],
      [
       "మీ",
-      "Mee"
+      "mee"
      ],
      [
-      "కారులో",
-      "kaarulo"
-     ],
-     [
-      "ABS",
-      "ABS"
-     ],
-     [
-      "ఉందా",
-      "undhaa"
-     ],
-     [
-      "కామెంట్",
-      "Comment"
-     ],
-     [
-      "చేయండి",
-      "cheyyandi"
+      "car",
+      "car"
      ]
     ],
     "title": {
-     "text": "YOUR CAR HAS {ABS}?",
-     "sub": "comment below",
-     "style": ""
-    },
-    "retention": "An opinion question that drives comments."
-   },
-   {
-    "scene": "hero_cta",
-    "words": [
-     [
-      "ఇంకా",
-      "Inkaa"
-     ],
-     [
-      "ఇలాంటివి",
-      "ilaantivi"
-     ],
-     [
-      "కావాలంటే",
-      "kaavaalante"
-     ],
-     [
-      "follow",
-      "follow"
-     ],
-     [
-      "అవ్వండి",
-      "avvandi"
-     ]
-    ],
-    "title": {
-     "text": "{FOLLOW} FOR MORE",
+     "text": "{COMMENT} BELOW",
      "sub": "",
      "style": ""
     },
-    "retention": "A short CTA that leads into the follow end card."
+    "retention": "Loop: the comment question flows into beat 1 ('brake ni second ki 15 saarlu kodutundi')."
    }
   ]
- },
- "release": "video-45026544339"
+ }
 }
