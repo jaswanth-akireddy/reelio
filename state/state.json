@@ -1,74 +1,74 @@
 {
- "stage": "await_script",
- "tg_offset": 437498532,
+ "stage": "await_pick",
+ "tg_offset": 437498533,
  "ideas": [
   {
-   "topic": "Brake pumping myth with ABS",
-   "angle": "Old advice to pump the brake makes an ABS car worse. ABS already pumps about 15 times a second, so you should press hard and hold. Verify the exact pulse rate against a manufacturer source before scripting.",
-   "hook_line_en": "Who told you to pump the brake? In an ABS car, that's wrong.",
+   "topic": "Brake fluid boils",
+   "angle": "Brake fluid absorbs moisture from the air over time. On a long ghat descent it can boil, and the pedal then sinks to the floor. This is why makers say to change it about every 2-3 years.",
+   "hook_line_en": "Your brake fluid can boil, and then the pedal goes straight to the floor.",
    "scores": {
     "hook": 8,
     "curiosity": 8,
-    "fit_3d": 9,
-    "shareability": 8
+    "fit_3d": 8,
+    "shareability": 7
    },
-   "why": "Almost every Telugu driver was taught to pump the brakes by an uncle or a driving school, and this tells them that habit can hurt them.",
-   "total": 33
+   "why": "Almost nobody knows brake fluid has an expiry date. Anyone who drives the Tirumala or Araku ghats feels the risk is real.",
+   "total": 31
   },
   {
-   "topic": "Brake fade on ghat roads",
-   "angle": "Riding the brake downhill on Tirumala or Araku ghat roads overheats the brakes until the pedal stops working. Engine braking in a low gear prevents it.",
-   "hook_line_en": "Ghat road lo brake ni ila vadithe, brake pani cheyyadu.",
-   "scores": {
-    "hook": 8,
-    "curiosity": 8,
-    "fit_3d": 7,
-    "shareability": 9
-   },
-   "why": "Families drive Tirumala ghat roads all the time, so a real risk plus a simple fix gets forwarded to the family group.",
-   "total": 32
-  },
-  {
-   "topic": "Stopping distance and speed",
-   "angle": "Doubling your speed from 50 to 100 km/h makes the braking distance about 4x, not 2x. Show it with a wet NH-65 stretch.",
-   "hook_line_en": "At 100 km/h, your car needs four times the distance it needs at 50.",
+   "topic": "Stopping distance 4x",
+   "angle": "Going from 50 to 100 km/h doubles the speed but needs about four times the braking distance. The brain feels it as only twice.",
+   "hook_line_en": "At 100 km/h your car needs 4 times the braking distance, not 2.",
    "scores": {
     "hook": 8,
     "curiosity": 7,
     "fit_3d": 8,
     "shareability": 8
    },
-   "why": "Most people assume the distance only doubles, and the real figure feels shocking and personal on highways.",
+   "why": "Everyone drives fast on the Hyderabad ORR and the Vijayawada highway. A shocking number that changes how they see speed will stop them.",
    "total": 31
   },
   {
-   "topic": "ESC and skid control",
-   "angle": "ESC brakes individual wheels to stop a slide that the driver cannot correct. Show brake_skid against brake_swerve and ask why the steering stopped working.",
-   "hook_line_en": "Steering tippinaa car tiragaledu. Enduku?",
-   "scores": {
-    "hook": 7,
-    "curiosity": 8,
-    "fit_3d": 9,
-    "shareability": 7
-   },
-   "why": "The skid footage grabs attention on mute, and the question of why steering fails is one most viewers can't answer in their head.",
-   "total": 31
-  },
-  {
-   "topic": "Old brake fluid",
-   "angle": "Brake fluid absorbs moisture from the air, which lowers its boiling point, so old fluid can fail in hard braking. Manufacturers usually say to change it every 2-3 years. Verify the interval and boiling-point figures before scripting.",
-   "hook_line_en": "Your brake fluid drinks water from the air, and that can kill your brakes.",
+   "topic": "Tyre expiry date",
+   "angle": "A tyre with deep tread can still be dangerous once it is 5-6 years old, because the rubber hardens and loses grip. The 4-digit date code on the sidewall tells you its age.",
+   "hook_line_en": "Your tyre has a secret date stamped on it, and it may already be expired.",
    "scores": {
     "hook": 8,
     "curiosity": 8,
     "fit_3d": 7,
+    "shareability": 8
+   },
+   "why": "They can go and check their own car in 10 seconds. It is a hidden fact on something they own, so it is easy to share in the family group.",
+   "total": 31
+  },
+  {
+   "topic": "ESC: the computer that stops your skid",
+   "angle": "Electronic stability control brakes single wheels on its own when it senses a slide. That is why a car can swerve around a barrier instead of sliding straight into it. Our two scenes show the without and with side by side.",
+   "hook_line_en": "Your car has a computer that brakes one wheel by itself to save you from a skid.",
+   "scores": {
+    "hook": 7,
+    "curiosity": 7,
+    "fit_3d": 9,
     "shareability": 7
    },
-   "why": "Few owners know brake fluid ever needs changing, and the idea of water inside the brake line stops the scroll.",
+   "why": "It is a curiosity-gap hook with the result shown first. The brake_skid versus brake_swerve contrast is our strongest visual, and it makes people ask whether their own car has it.",
    "total": 30
+  },
+  {
+   "topic": "Wet road grip and hydroplaning",
+   "angle": "On a wet NH, a worn tyre can ride on a film of water above roughly 80 km/h. Then the steering and brakes do nothing for a moment. This is the same reason a scooter slides on a wet road.",
+   "hook_line_en": "In monsoon, your car can float on water and you lose steering completely.",
+   "scores": {
+    "hook": 8,
+    "curiosity": 7,
+    "fit_3d": 7,
+    "shareability": 7
+   },
+   "why": "Monsoon driving on NH-65 and the Vizag roads is a real fear. Seeing the car lose control with the wheels still turning is a visual shock.",
+   "total": 29
   }
  ],
- "date": "2026-11-25",
+ "date": "2026-11-27",
  "idea": {
   "topic": "Brake pumping myth with ABS",
   "angle": "Old advice to pump the brake makes an ABS car worse. ABS already pumps about 15 times a second, so you should press hard and hold. Verify the exact pulse rate against a manufacturer source before scripting.",
